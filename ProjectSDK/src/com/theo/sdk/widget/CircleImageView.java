@@ -20,7 +20,7 @@ import android.util.AttributeSet;
 import android.widget.ImageView;
 
 /**
- * Ô²ÐÎImageView
+ * åœ†å½¢ImageView
  * @author Theo
  *
  */

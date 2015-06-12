@@ -15,7 +15,7 @@ import android.text.TextUtils;
 
 
 /**
- * Êı¾İ»º´æ
+ * æ•°æ®ç¼“å­˜
  * 
  * @author Theo
  */
@@ -26,15 +26,15 @@ public class DataCache {
     /** TAG */
     public static final String TAG = DataCache.class.getSimpleName();
     
-    /** cacheÎÄ¼şÎ¨Ò»id */
+    /** cacheæ–‡ä»¶å”¯ä¸€id */
      String mId;
-    /** cacheÎÄ¼ş */
+    /** cacheæ–‡ä»¶ */
     File mFile;
     /** Assets */
     private AssetManager mAssets;
 
     /**
-     * ¹¹Ôì
+     * æ„é€ 
      * @param id id
      * @param dir dir
      */
@@ -44,7 +44,7 @@ public class DataCache {
     }
 
     /**
-     * ¹¹Ôì
+     * æ„é€ 
      * @param id id
      * @param dir dir
      * @param asset AssetManager
@@ -56,9 +56,9 @@ public class DataCache {
     }
 
     /**
-     * ±£´æ
+     * ä¿å­˜
      * @param data data
-     * @return ³É¹¦
+     * @return æˆåŠŸ
      */
     public boolean save(String data) {
         if (mFile != null) {
@@ -86,16 +86,16 @@ public class DataCache {
     }
 
     /**
-     * ÊÇ·ñ´æÔÚ
-     * @return ÊÇ·ñ´æÔÚ
+     * æ˜¯å¦å­˜åœ¨
+     * @return æ˜¯å¦å­˜åœ¨
      */
     public boolean exist() {
         return mFile.exists() || checkCacheInAssets();
     }
     
     /**
-     * ¼ì²é»º´æÎÄ¼şÊÇ·ñÔÚassetsÖĞ´æÔÚ
-     * @return ÊÇ·ñ´æÔÚ
+     * æ£€æŸ¥ç¼“å­˜æ–‡ä»¶æ˜¯å¦åœ¨assetsä¸­å­˜åœ¨
+     * @return æ˜¯å¦å­˜åœ¨
      */
     private boolean checkCacheInAssets() {
         boolean isExist = false;
@@ -119,8 +119,8 @@ public class DataCache {
     }
 
     /**
-     * ¼ÓÔØ
-     * @return Êı¾İ
+     * åŠ è½½
+     * @return æ•°æ®
      */
     public String load() {
         BufferedReader br = null;
@@ -151,7 +151,7 @@ public class DataCache {
             }
         }
         
-        //Èç¹û´ÓÄÜÔÚ¶ÁÈ¡Ê§°Ü£¬Ôò³¢ÊÔ´ÓassetsÖĞÈ¥¶ÁÈ¡
+        //å¦‚æœä»èƒ½åœ¨è¯»å–å¤±è´¥ï¼Œåˆ™å°è¯•ä»assetsä¸­å»è¯»å–
         if (ret == null && mAssets != null) {
             InputStream in = null;
             try {

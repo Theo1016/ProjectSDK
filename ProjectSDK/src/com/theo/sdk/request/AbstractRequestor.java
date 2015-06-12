@@ -15,8 +15,8 @@ import android.util.Log;
 
 /**
  * 
- * Requestor´ÓËüÀ´»ñÈ¡ÍøÂç·ÃÎÊĞÅÏ¢£¬²¢½âÎöµÃµ½µÄÊı¾İ RequestorµÄ»ùÀà£¬ËùÓĞµÄ½Ó¿ÚRequestor±¾ÖÊÉÏ¶¼´ÓËü¼Ì³Ğ
- * Ö´ĞĞdoRequest()·½·¨¿ªÊ¼Òì²½»ñÈ¡Êı¾İ£¬²¢ÓÉonReqeustListener¼àÌı»Øµ÷½á¹û×´Ì¬
+ * Requestorä»å®ƒæ¥è·å–ç½‘ç»œè®¿é—®ä¿¡æ¯ï¼Œå¹¶è§£æå¾—åˆ°çš„æ•°æ® Requestorçš„åŸºç±»ï¼Œæ‰€æœ‰çš„æ¥å£Requestoræœ¬è´¨ä¸Šéƒ½ä»å®ƒç»§æ‰¿
+ * æ‰§è¡ŒdoRequest()æ–¹æ³•å¼€å§‹å¼‚æ­¥è·å–æ•°æ®ï¼Œå¹¶ç”±onReqeustListenerç›‘å¬å›è°ƒç»“æœçŠ¶æ€
  * 
  * @author Theo
  */
@@ -25,70 +25,70 @@ public abstract class AbstractRequestor {
 	/** context */
 	protected Context mContext;
 	/**
-	 * Ö÷Ïß³ÌHandler
+	 * ä¸»çº¿ç¨‹Handler
 	 */
 	private Handler mHandler;
 
-	/** Cache ¹¤¾ß */
+	/** Cache å·¥å…· */
 	private DataCache mDataCache;
 	
-	/** ÊÇ·ñ¿ªÆô¶Á»º´æ */
+	/** æ˜¯å¦å¼€å¯è¯»ç¼“å­˜ */
 	private boolean mReadCacheFlag;
 	
-	/** ÊÇ·ñ¿ªÆôĞ´»º´æ */
+	/** æ˜¯å¦å¼€å¯å†™ç¼“å­˜ */
 	private boolean mWriteCacheFlag;
 
-	/** ½âÎöÊı¾İ½Ó¿Ú */
+	/** è§£ææ•°æ®æ¥å£ */
 	private ParseDataInterface parseDateInterface;
 
-	/** ÇëÇóÊı¾İ½Ó¿Ú */
+	/** è¯·æ±‚æ•°æ®æ¥å£ */
 	private RequestInterface requestInterface;
 
-	/** ÊÇ·ñÑÓÊ±¶ÁÈ¡ÁªÍø·µ»ØµÄÊı¾İÒÔ·ÀÖ¹×èÈûUI */
+	/** æ˜¯å¦å»¶æ—¶è¯»å–è”ç½‘è¿”å›çš„æ•°æ®ä»¥é˜²æ­¢é˜»å¡UI */
 	private boolean mParseNetDataDelayed = false;
 	
-	/** ¶ÁÈ¡±¾µØ»º´æºÍÍøÉÏ»º´æµÄ×îĞ¡Ê±¼ä¼ä¸ô */
+	/** è¯»å–æœ¬åœ°ç¼“å­˜å’Œç½‘ä¸Šç¼“å­˜çš„æœ€å°æ—¶é—´é—´éš” */
 	private static final long TIME_INTERVAL = 2 * DateUtils.SECOND_IN_MILLIS;
 	/**
-	 * Êı¾İÇëÇó½á¹û»Øµ÷Listener
+	 * æ•°æ®è¯·æ±‚ç»“æœå›è°ƒListener
 	 */
 	protected OnRequestListener mOnRequestListener;
 	
 	/**
-	 * HttpÇëÇó½á¹û»Øµ÷Listener
+	 * Httpè¯·æ±‚ç»“æœå›è°ƒListener
 	 */
 	protected OnHttpRequestHandlerListener mOnHttpRequestHandlerListener;
 
-	/** »ñÈ¡cache listener */
+	/** è·å–cache listener */
 	private OnCacheLoadListener mCacheLoadListener;
 
-	/** ´íÎóÂë */
+	/** é”™è¯¯ç  */
 	private int mErrorCode = IRequestErrorCode.ERROR_CODE_UNKNOW;
 
 	/** DEBUG */
 	public static final boolean DEBUG = true & Const.DEBUG;
 
 	/**
-	 * ÊÇ·ñÈÎÎñÒÑ¾­È¡Ïû
+	 * æ˜¯å¦ä»»åŠ¡å·²ç»å–æ¶ˆ
 	 */
 	private boolean mIsCanceled;
 
 	/**
-	 * ÇëÇó²ÎÊı
+	 * è¯·æ±‚å‚æ•°
 	 * 
 	 * @return Parameters
 	 */
 	protected abstract List<NameValuePair> getRequestParams();
 
 	/**
-	 * ÇëÇóµØÖ·
+	 * è¯·æ±‚åœ°å€
 	 * 
 	 * @return Url
 	 */
 	protected abstract String getRequestUrl();
 
 	/**
-	 * ¹¹Ôìº¯Êı
+	 * æ„é€ å‡½æ•°
 	 * 
 	 * @param context
 	 *            Context
@@ -98,7 +98,7 @@ public abstract class AbstractRequestor {
 	}
 
 	/**
-	 * ÉèÖÃ½âÎö·½Ê½
+	 * è®¾ç½®è§£ææ–¹å¼
 	 * 
 	 * @param parseDataInterface
 	 */
@@ -107,7 +107,7 @@ public abstract class AbstractRequestor {
 	}
 	
 	/**
-	 * ÉèÖÃÇëÇó·½Ê½
+	 * è®¾ç½®è¯·æ±‚æ–¹å¼
 	 * @param request
 	 */
 	public void setRequestMethod(RequestInterface request){
@@ -115,28 +115,28 @@ public abstract class AbstractRequestor {
 	}
 
 	/**
-	 * ÊÇ·ñÓĞ¿ÉÓÃ»º´æÊı¾İ
+	 * æ˜¯å¦æœ‰å¯ç”¨ç¼“å­˜æ•°æ®
 	 * 
-	 * @return ÊÇ·ñÓĞ¿ÉÓÃ»º´æÊı¾İ
+	 * @return æ˜¯å¦æœ‰å¯ç”¨ç¼“å­˜æ•°æ®
 	 */
 	boolean canUseCache() {
 		return mDataCache != null && mReadCacheFlag;
 	}
 
 	/**
-	 * ÉèÖÃÊÇ·ñÑÓÊ±¶ÁÈ¡ÁªÍø·µ»ØµÄÊı¾İÒÔ·ÀÖ¹×èÈûUI£¬sleepÏß³Ì
+	 * è®¾ç½®æ˜¯å¦å»¶æ—¶è¯»å–è”ç½‘è¿”å›çš„æ•°æ®ä»¥é˜²æ­¢é˜»å¡UIï¼Œsleepçº¿ç¨‹
 	 * 
 	 * @param parseNetDataDelayed
-	 *            true:ÑÓÊ±½âÎö
+	 *            true:å»¶æ—¶è§£æ
 	 */
 	public void setParseNetDataDelayed(boolean parseNetDataDelayed) {
 		this.mParseNetDataDelayed = parseNetDataDelayed;
 	}
 
 	/**
-	 * »ñÈ¡Ö÷Ïß³ÌµÄhandler
+	 * è·å–ä¸»çº¿ç¨‹çš„handler
 	 * 
-	 * @return Ö÷Ïß³ÌµÄhandler
+	 * @return ä¸»çº¿ç¨‹çš„handler
 	 */
 	public synchronized Handler getHandler() {
 		if (mHandler == null) {
@@ -146,31 +146,31 @@ public abstract class AbstractRequestor {
 	}
 
 	/**
-	 * ÊÇ·ñĞèÒª»º³åÍøÂçÊı¾İ
+	 * æ˜¯å¦éœ€è¦ç¼“å†²ç½‘ç»œæ•°æ®
 	 * 
-	 * @return ÊÇ·ñĞèÒª»º³åÍøÂçÊı¾İ
+	 * @return æ˜¯å¦éœ€è¦ç¼“å†²ç½‘ç»œæ•°æ®
 	 */
 	boolean needCacheData() {
 		return mDataCache != null && mWriteCacheFlag;
 	}
 
 	/**
-	 * ´ò¿ªĞ´»º´æ¹¦ÄÜ
+	 * æ‰“å¼€å†™ç¼“å­˜åŠŸèƒ½
 	 * 
 	 * @param cacheId
-	 *            »º´æÎÄ¼şÃû³Æ
+	 *            ç¼“å­˜æ–‡ä»¶åç§°
 	 */
 	public void turnOnWriteCache(String cacheId) {
 		turnOnCache(cacheId, null, mReadCacheFlag, true);
 	}
 
 	/**
-	 * ´ò¿ª¶Á»º´æ¹¦ÄÜ
+	 * æ‰“å¼€è¯»ç¼“å­˜åŠŸèƒ½
 	 * 
 	 * @param cacheId
-	 *            »º´æÎÄ¼şÃû³Æ
+	 *            ç¼“å­˜æ–‡ä»¶åç§°
 	 * @param cacheLoadListener
-	 *            »º´æ¶ÁÈ¡³É¹¦µÄ»Øµ÷
+	 *            ç¼“å­˜è¯»å–æˆåŠŸçš„å›è°ƒ
 	 */
 	public void turnOnReadCache(String cacheId,
 			OnCacheLoadListener cacheLoadListener) {
@@ -178,16 +178,16 @@ public abstract class AbstractRequestor {
 	}
 
 	/**
-	 * Ö´ĞĞ´ò¿ª»º´æ¹¦ÄÜµÄ·½·¨£¬Ë½ÓĞ²»¶ÔÍâ¿ª·Å
+	 * æ‰§è¡Œæ‰“å¼€ç¼“å­˜åŠŸèƒ½çš„æ–¹æ³•ï¼Œç§æœ‰ä¸å¯¹å¤–å¼€æ”¾
 	 * 
 	 * @param cacheId
-	 *            »º´æÎÄ¼şÃû
+	 *            ç¼“å­˜æ–‡ä»¶å
 	 * @param cacheLoadListener
-	 *            Listener£¬ÔÚ¶ÁÈ¡»º´æ³É¹¦Ê±»áµ÷ÓÃ
+	 *            Listenerï¼Œåœ¨è¯»å–ç¼“å­˜æˆåŠŸæ—¶ä¼šè°ƒç”¨
 	 * @param readFlag
-	 *            ÊÇ·ñ¿ªÆô¶Á»º´æ¹¦ÄÜ
+	 *            æ˜¯å¦å¼€å¯è¯»ç¼“å­˜åŠŸèƒ½
 	 * @param writeFlag
-	 *            ÊÇ·ñ¿ªÆô¶¨»º´æ¹¦ÄÜ
+	 *            æ˜¯å¦å¼€å¯å®šç¼“å­˜åŠŸèƒ½
 	 */
 	private void turnOnCache(String cacheId,
 			OnCacheLoadListener cacheLoadListener, boolean readFlag,
@@ -203,7 +203,7 @@ public abstract class AbstractRequestor {
 	}
 
 	/**
-	 * ¹Ø±Õcache,Ä¬ÈÏÎª¹Ø±Õ×´Ì¬
+	 * å…³é—­cache,é»˜è®¤ä¸ºå…³é—­çŠ¶æ€
 	 */
 	public void turnOffCache() {
 		mDataCache = null;
@@ -214,37 +214,37 @@ public abstract class AbstractRequestor {
 	}
 
 	/**
-	 * ·¢ÆğÊı¾İÇëÇó
+	 * å‘èµ·æ•°æ®è¯·æ±‚
 	 * 
 	 * @param listener
-	 *            Êı¾İÇëÇó½á¹ûListener
+	 *            æ•°æ®è¯·æ±‚ç»“æœListener
 	 */
 	public void doRequest(OnRequestListener listener) {
-		// Ìõ¼ş·ûºÏ,ÔòÊ¹ÓÃ»º´æ
+		// æ¡ä»¶ç¬¦åˆ,åˆ™ä½¿ç”¨ç¼“å­˜
 		useCacheIfCould();
-		//³õÊ¼»¯ÍøÂçÇëÇó»Øµ÷
+		//åˆå§‹åŒ–ç½‘ç»œè¯·æ±‚å›è°ƒ
 		init(mOnRequestListener);
-		// ÍøÂçÇëÇó
+		// ç½‘ç»œè¯·æ±‚
 		requestInterface.request(mOnHttpRequestHandlerListener);
 		
 	}
 
 	/**
-	 * ³õÊ¼»¯ÇëÇóµÄ»Øµ÷£¬¼°ÆäËü±ØÒªÄÚÈİ
+	 * åˆå§‹åŒ–è¯·æ±‚çš„å›è°ƒï¼ŒåŠå…¶å®ƒå¿…è¦å†…å®¹
 	 */
 	private void init(OnRequestListener listener) {
 		mOnRequestListener = listener;
-		// ÇëÇóÊı¾İÊ±£¬ÒªÇó»Øµ÷
+		// è¯·æ±‚æ•°æ®æ—¶ï¼Œè¦æ±‚å›è°ƒ
 		if (mOnRequestListener != null) {
 			getHandler();
 			mOnHttpRequestHandlerListener = new HttpRequestHandler.OnHttpRequestHandlerListener() {
 				@Override
 				public void onSuccess(String result) {
-					// ´ËÇëÇóÒÑ¾­±»Cancel
+					// æ­¤è¯·æ±‚å·²ç»è¢«Cancel
 					if (mIsCanceled) {
 						return;
 					}
-					// ½âÎöÊı¾İ
+					// è§£ææ•°æ®
 					boolean parseResult = false;
 					try {
 						if (DEBUG) {
@@ -265,7 +265,7 @@ public abstract class AbstractRequestor {
 						e.printStackTrace();
 					}
 
-					// ½âÎö³É¹¦ÔÙ½øĞĞ´æ´¢
+					// è§£ææˆåŠŸå†è¿›è¡Œå­˜å‚¨
 					if (parseResult) {
 						cacheDataIfNeed(result);
 					}
@@ -274,7 +274,7 @@ public abstract class AbstractRequestor {
 				@Override
 				public void onFailed(final int errorCode) {
 
-					// ´ËÇëÇóÒÑ¾­±»Cancel
+					// æ­¤è¯·æ±‚å·²ç»è¢«Cancel
 					if (mIsCanceled) {
 						return;
 					}
@@ -285,10 +285,10 @@ public abstract class AbstractRequestor {
 	}
 
 	/**
-	 * Èç¹ûĞèÒª,»º´æÊı¾İ
+	 * å¦‚æœéœ€è¦,ç¼“å­˜æ•°æ®
 	 * 
 	 * @param data
-	 *            Êı¾İ
+	 *            æ•°æ®
 	 */
 	private void cacheDataIfNeed(String data) {
 		if (DEBUG) {
@@ -304,7 +304,7 @@ public abstract class AbstractRequestor {
 	}
 
 	/**
-	 * ·µ»ØÊı¾İÀ­È¡³É¹¦µÄ½á¹û¸øListener
+	 * è¿”å›æ•°æ®æ‹‰å–æˆåŠŸçš„ç»“æœç»™Listener
 	 */
 	private void responseRequestSuccess() {
 		if (mHandler != null) {
@@ -320,10 +320,10 @@ public abstract class AbstractRequestor {
 	}
 
 	/**
-	 * ·µ»ØÊı¾İÀ­È¡Ê§°ÜµÄ½á¹û¸øListener
+	 * è¿”å›æ•°æ®æ‹‰å–å¤±è´¥çš„ç»“æœç»™Listener
 	 * 
 	 * @param errorCode
-	 *            ´íÎóÂë
+	 *            é”™è¯¯ç 
 	 */
 	private void responseRequestFailed(final int errorCode) {
 		if (mHandler != null) {
@@ -340,7 +340,7 @@ public abstract class AbstractRequestor {
 	}
 
 	/**
-	 * ÈçºÎ¿ÉÒÔ,Ê¹ÓÃ»º´æÊı¾İ
+	 * å¦‚ä½•å¯ä»¥,ä½¿ç”¨ç¼“å­˜æ•°æ®
 	 */
 	private void useCacheIfCould() {
 		if (mDataCache == null) {
@@ -350,7 +350,7 @@ public abstract class AbstractRequestor {
 			new CacheRequestTask(mDataCache, new OnCacheRequestListener() {
 				@Override
 				public void onSuccess(String result) {
-					// ½âÎöÊı¾İ
+					// è§£ææ•°æ®
 					boolean isParseSuccess = false;
 					try {
 						isParseSuccess = parseDateInterface.parseResult(result);
@@ -358,7 +358,7 @@ public abstract class AbstractRequestor {
 						e.printStackTrace();
 					}
 					if (isParseSuccess) {
-						// »Øµ÷
+						// å›è°ƒ
 						if (mHandler != null) {
 							mHandler.post(new Runnable() {
 								@Override
@@ -387,7 +387,7 @@ public abstract class AbstractRequestor {
 
 
 	/**
-	 * »º´æ»Øµ÷
+	 * ç¼“å­˜å›è°ƒ
 	 * 
 	 * @author Theo
 	 * 
@@ -395,7 +395,7 @@ public abstract class AbstractRequestor {
 	public interface OnCacheLoadListener {
 
 		/**
-		 * cache»ñÈ¡³É¹¦
+		 * cacheè·å–æˆåŠŸ
 		 * 
 		 * @param requestor
 		 *            requestor
@@ -404,7 +404,7 @@ public abstract class AbstractRequestor {
 	}
 
 	/**
-	 * Ç°¶ËÊı¾İ»Øµ÷
+	 * å‰ç«¯æ•°æ®å›è°ƒ
 	 * 
 	 * @author Theo
 	 * 
@@ -412,7 +412,7 @@ public abstract class AbstractRequestor {
 	public interface OnRequestListener {
 
 		/**
-		 * »ñÈ¡³É¹¦
+		 * è·å–æˆåŠŸ
 		 * 
 		 * @param requestor
 		 *            requestor
@@ -420,12 +420,12 @@ public abstract class AbstractRequestor {
 		void onSuccess(AbstractRequestor requestor);
 
 		/**
-		 * »ñÈ¡Ê§°Ü
+		 * è·å–å¤±è´¥
 		 * 
 		 * @param requestor
 		 *            requestor
 		 * @param errorCode
-		 *            ´íÎóÂë
+		 *            é”™è¯¯ç 
 		 */
 		void onFailed(AbstractRequestor requestor, int errorCode);
 

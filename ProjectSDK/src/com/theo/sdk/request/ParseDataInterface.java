@@ -5,9 +5,9 @@ import org.json.JSONException;
 public interface ParseDataInterface {
 	
 	/**
-     * 解析获取到的JSON数据
+     * 瑙ｆ瀽鑾峰彇鍒扮殑JSON鏁版嵁
      * @param result result
-     * @return 是否解析成功，注意：如果解析失败，请设置错误码mErrorCode
+     * @return 鏄惁瑙ｆ瀽鎴愬姛锛屾敞鎰忥細濡傛灉瑙ｆ瀽澶辫触锛岃璁剧疆閿欒鐮乵ErrorCode
      * @throws JSONException JSONException
      * @throws Exception Exception
      */

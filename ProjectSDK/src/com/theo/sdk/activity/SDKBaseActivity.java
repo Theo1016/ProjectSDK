@@ -13,14 +13,14 @@ import android.content.Intent;
 import android.os.Bundle;
 
 /**
- * Activity»ùÀà
+ * ActivityåŸºç±»
  * @author Theo
  * 
  */
 public class SDKBaseActivity extends Activity implements HttpCallBack {
 
 	/**
-	 * ½ø¶ÈÌõ
+	 * è¿›åº¦æ¡
 	 */
 	private CommonProgressDialog mProgressDialog;
 
@@ -42,7 +42,7 @@ public class SDKBaseActivity extends Activity implements HttpCallBack {
 	}
 
 	/**
-	 * ³õÊ¼»¯²ÎÊı
+	 * åˆå§‹åŒ–å‚æ•°
 	 */
 	protected void initParams() {
 		mContext = getApplicationContext();
@@ -50,14 +50,14 @@ public class SDKBaseActivity extends Activity implements HttpCallBack {
 	}
 
 	/**
-	 * ³õÊ¼»¯½çÃæ
+	 * åˆå§‹åŒ–ç•Œé¢
 	 */
 	protected void initViews() {
 
 	}
 
 	/**
-	 * ³õÊ¼»¯¼àÌıÆ÷
+	 * åˆå§‹åŒ–ç›‘å¬å™¨
 	 */
 	protected void initListeners() {
 
@@ -74,7 +74,7 @@ public class SDKBaseActivity extends Activity implements HttpCallBack {
 	}
 
 	/**
-	 * ÏÔÊ¾½ø¶È¶Ô»°¿ò
+	 * æ˜¾ç¤ºè¿›åº¦å¯¹è¯æ¡†
 	 */
 	public final void showProgressDialog(
 			DialogInterface.OnCancelListener mCancel) {
@@ -93,7 +93,7 @@ public class SDKBaseActivity extends Activity implements HttpCallBack {
 	}
 
 	/**
-	 * ½ø¶È¶Ô»°¿òÊÇ·ñÏÔÊ¾
+	 * è¿›åº¦å¯¹è¯æ¡†æ˜¯å¦æ˜¾ç¤º
 	 * 
 	 * @return
 	 */
@@ -106,7 +106,7 @@ public class SDKBaseActivity extends Activity implements HttpCallBack {
 	}
 
 	/**
-	 * Òş²Ø½ø¶È¶Ô»°¿ò
+	 * éšè—è¿›åº¦å¯¹è¯æ¡†
 	 */
 	public final void removeProgressDialog() {
 		if (mProgressDialog != null && mProgressDialog.isShowing()) {
@@ -115,7 +115,7 @@ public class SDKBaseActivity extends Activity implements HttpCallBack {
 	}
 
 	/**
-	 * activityÌø×ª
+	 * activityè·³è½¬
 	 * 
 	 * @param toActivity
 	 */
@@ -126,7 +126,7 @@ public class SDKBaseActivity extends Activity implements HttpCallBack {
 	}
 
 	/**
-	 * activityÌø×ª
+	 * activityè·³è½¬
 	 * 
 	 * @param action
 	 */

@@ -21,16 +21,16 @@ import android.util.DisplayMetrics;
 import android.util.Log;
 
 /**
- * ¹¤¾ßÀà
+ * å·¥å…·ç±»
  * @author Theo
  * 
  */
 public class AppUtils {
-	/** 1024,ÓÃÓÚ¼ÆËãapp´óĞ¡ */
+	/** 1024,ç”¨äºè®¡ç®—appå¤§å° */
     public static final int NUM_1024 = 1024;
-	/** DEBUG¿ª¹Ø*/
+	/** DEBUGå¼€å…³*/
 	private static final boolean DEBUG = false & Const.DEBUG;
-	/** ¶¨ÒåbufferµÄ´óĞ¡ */
+	/** å®šä¹‰bufferçš„å¤§å° */
     private static final int BUFFERSIZE = 1024;
 
 	@SuppressWarnings("unchecked")
@@ -50,7 +50,7 @@ public class AppUtils {
 	}
 
 	/**
-	 * ÈÕÖ¾¿ª¹Ø
+	 * æ—¥å¿—å¼€å…³
 	 * 
 	 * @return
 	 */
@@ -67,7 +67,7 @@ public class AppUtils {
 	}
 
 	/**
-	 * »ñÈ¡/data/data/youPackageName/Â·¾¶
+	 * è·å–/data/data/youPackageName/è·¯å¾„
 	 * 
 	 * @param context
 	 * @return String
@@ -79,20 +79,20 @@ public class AppUtils {
 		return null;
 	}
 
-	/** DP×ª»»ÎªÏñËØÖµ */
+	/** DPè½¬æ¢ä¸ºåƒç´ å€¼ */
 	public static int dip2px(Context context, float dipValue) {
 		final float scale = context.getResources().getDisplayMetrics().density;
 		return (int) (dipValue * scale + 0.5f);
 	}
 
-	/** ÏñËØ×ª»»ÎªDPÖµ */
+	/** åƒç´ è½¬æ¢ä¸ºDPå€¼ */
 	public static int px2dip(Context context, float pxValue) {
 		final float scale = context.getResources().getDisplayMetrics().density;
 		return (int) (pxValue / scale + 0.5f);
 	}
 
 	/**
-	 * »ñÈ¡ÆÁÄ»¿í¶È
+	 * è·å–å±å¹•å®½åº¦
 	 * 
 	 * @param context
 	 * @return
@@ -104,7 +104,7 @@ public class AppUtils {
 	}
 
 	/**
-	 * »ñÈ¡ÆÁÄ»¸ß¶È
+	 * è·å–å±å¹•é«˜åº¦
 	 * 
 	 * @param context
 	 * @return
@@ -118,11 +118,11 @@ public class AppUtils {
 	
 
 	/**
-	 * »ñÈ¡Éè±¸µÄimeiºÅ
+	 * è·å–è®¾å¤‡çš„imeiå·
 	 * 
 	 * @param context
 	 *            Context
-	 * @return imeiºÅ
+	 * @return imeiå·
 	 */
 	public static String getDeviceId(Context context) {
 		String deviceId = "";
@@ -131,15 +131,15 @@ public class AppUtils {
 					.getSystemService(Context.TELEPHONY_SERVICE);
 			if (tm != null) {
 				deviceId = tm.getDeviceId();
-				// Ä£ÄâÆ÷»á·µ»Ø 000000000000000
+				// æ¨¡æ‹Ÿå™¨ä¼šè¿”å› 000000000000000
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
 		if (TextUtils.isEmpty(deviceId)) {
-			// Èç¹ûimeiÎª¿Õ£¬Ê¹ÓÃËæ»úÊı²úÉúÒ»¸ö 12 Î» deviceid£¬
-			final int imeiLength = 12; // gsm imei ºÅ³¤¶È 12
-			final int ten = 10; // ²úÉú10ÒÔÄÚµÄËæ»úÊı
+			// å¦‚æœimeiä¸ºç©ºï¼Œä½¿ç”¨éšæœºæ•°äº§ç”Ÿä¸€ä¸ª 12 ä½ deviceidï¼Œ
+			final int imeiLength = 12; // gsm imei å·é•¿åº¦ 12
+			final int ten = 10; // äº§ç”Ÿ10ä»¥å†…çš„éšæœºæ•°
 			Random random = new Random();
 			StringBuffer sb = new StringBuffer(imeiLength);
 			for (int i = 0; i < imeiLength; i++) {
@@ -152,9 +152,9 @@ public class AppUtils {
 	}
 
 	/**
-	 * ÊÇ·ñ°²×°ÁËsdcard¡£
+	 * æ˜¯å¦å®‰è£…äº†sdcardã€‚
 	 * 
-	 * @return true±íÊ¾ÓĞ£¬false±íÊ¾Ã»ÓĞ
+	 * @return trueè¡¨ç¤ºæœ‰ï¼Œfalseè¡¨ç¤ºæ²¡æœ‰
 	 */
 	public static boolean haveSDCard() {
 		if (android.os.Environment.getExternalStorageState().equals(
@@ -165,11 +165,11 @@ public class AppUtils {
 	}
 	
 	/**
-     * ½ÓÊÕÍøÂçÊı¾İÁ÷,¼æÈİgzipÓëÕı³£¸ñÊ½ÄÚÈİ¡£
+     * æ¥æ”¶ç½‘ç»œæ•°æ®æµ,å…¼å®¹gzipä¸æ­£å¸¸æ ¼å¼å†…å®¹ã€‚
      * 
      * @param is
-     *            ¶ÁÈ¡ÍøÂçÊı¾İµÄÁ÷
-     * @return ×Ö·û´®ÀàĞÍÊı¾İ
+     *            è¯»å–ç½‘ç»œæ•°æ®çš„æµ
+     * @return å­—ç¬¦ä¸²ç±»å‹æ•°æ®
      */
     public static String recieveData(InputStream is) {
         String s = null;
@@ -191,7 +191,7 @@ public class AppUtils {
                 baos.write(buff, 0, readed);
             }
             byte[] result = baos.toByteArray();
-            //ÅĞ¶ÏÊÇ·ñÊÇgzip¸ñÊ½µÄÄÚÈİ¡£
+            //åˆ¤æ–­æ˜¯å¦æ˜¯gzipæ ¼å¼çš„å†…å®¹ã€‚
             System.arraycopy(result, 0, filetype, 0, 4); // SUPPRESS CHECKSTYLE
             if ("1F8B0800".equalsIgnoreCase(bytesToHexString(filetype))) {
                 isGzip = true;
@@ -214,17 +214,17 @@ public class AppUtils {
             e.printStackTrace();
         }
         if (DEBUG) {
-            Log.i(Const.LogTag, "·şÎñÆ÷ÏÂ·¢Êı¾İ:" + s);
+            Log.i(Const.LogTag, "æœåŠ¡å™¨ä¸‹å‘æ•°æ®:" + s);
         }
         return s;
     }
     
     /**
-     * byteÊı×é×ª»»³É16½øÖÆ×Ö·û´®
+     * byteæ•°ç»„è½¬æ¢æˆ16è¿›åˆ¶å­—ç¬¦ä¸²
      * 
      * @param src
-     *            Êı¾İÔ´
-     * @return byte×ªÎª16½øÖÆ
+     *            æ•°æ®æº
+     * @return byteè½¬ä¸º16è¿›åˆ¶
      */
     public static String bytesToHexString(byte[] src) {
         StringBuilder stringBuilder = new StringBuilder();
@@ -243,11 +243,11 @@ public class AppUtils {
     }
     
     /***
-	 * ½âÑ¹GZip
+	 * è§£å‹GZip
 	 * 
 	 * @param data
-	 *            Òª½âÑ¹µÄÊı¾İ
-	 * @return ½âÑ¹¹ıµÄÊı¾İ
+	 *            è¦è§£å‹çš„æ•°æ®
+	 * @return è§£å‹è¿‡çš„æ•°æ®
 	 */
     public static byte[] unGZip(byte[] data) {
 

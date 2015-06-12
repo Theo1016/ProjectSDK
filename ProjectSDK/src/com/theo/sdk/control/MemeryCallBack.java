@@ -12,7 +12,7 @@ import android.graphics.Bitmap;
 import android.util.Log;
 
 /**
- * »º´æ»Øµ÷
+ * ç¼“å­˜å›žè°ƒ
  * @author Theo
  *
  */
@@ -36,14 +36,14 @@ public class MemeryCallBack implements ComponentCallbacks2{
 	}
 
 	/**
-	 * Çå³ýËùÓÐÍ¼Æ¬»º´æ
+	 * æ¸…é™¤æ‰€æœ‰å›¾ç‰‡ç¼“å­˜
 	 */
 	public static void cleanCache() {
 		ImageLoader.getInstance().clearMemoryCache();
 	}
 
 	/**
-	 * ÊÍ·Å»º´æ
+	 * é‡Šæ”¾ç¼“å­˜
 	 */
 	public static void releaseCache() {
 		MemoryCacheAware<String, Bitmap> memoryCacheAware = ImageLoader.getInstance().getMemoryCache();
@@ -51,7 +51,7 @@ public class MemeryCallBack implements ComponentCallbacks2{
 		int i = 0;
 		for (String string : listStrings) {
 			memoryCacheAware.remove(string);
-			Log.i(Const.LogTag, "=========> ÊÍ·Å»º´ækey" + string);
+			Log.i(Const.LogTag, "=========> é‡Šæ”¾ç¼“å­˜key" + string);
 			i++;
 			if (i == listStrings.size() / 2) {
 				return;

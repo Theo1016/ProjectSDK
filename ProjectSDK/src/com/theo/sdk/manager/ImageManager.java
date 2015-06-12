@@ -21,7 +21,7 @@ import android.graphics.BitmapFactory.Options;
 import android.content.Context;
 
 /**
- * Í¼Æ¬»º´æ¹ÜÀí
+ * å›¾ç‰‡ç¼“å­˜ç®¡ç†
  * @author Theo
  *
  */
@@ -33,7 +33,7 @@ public class ImageManager {
 	
 	
 	/**
-	 * ³õÊ¼»¯ImageLoader
+	 * åˆå§‹åŒ–ImageLoader
 	 * @param context
 	 */
 	public static void initImageLoader(Context context) {
@@ -62,16 +62,16 @@ public class ImageManager {
 	}
 
 	/**
-	 * »ñÈ¡³£ÓÃµÄÍ¼Æ¬µÄĞÅÏ¢ÉèÖÃ
+	 * è·å–å¸¸ç”¨çš„å›¾ç‰‡çš„ä¿¡æ¯è®¾ç½®
 	 * 
 	 * @param option
-	 *            Í¼Æ¬µÄ½âÂëÅäÖÃ
+	 *            å›¾ç‰‡çš„è§£ç é…ç½®
 	 * @param loadingSrc
-	 *            Í¼Æ¬ÕıÔÚ¼ÓÔØµÄÊ±ºòÏÔÊ¾µÄÍ¼Æ¬ ¿ÉÎª¿Õ
+	 *            å›¾ç‰‡æ­£åœ¨åŠ è½½çš„æ—¶å€™æ˜¾ç¤ºçš„å›¾ç‰‡ å¯ä¸ºç©º
 	 * @param emptyUriSrc
-	 *            Í¼Æ¬µØÖ·Îª¿ÕµÄÊ±ºòÏÔÊ¾µÄÍ¼Æ¬ ¿ÉÎª¿Õ
+	 *            å›¾ç‰‡åœ°å€ä¸ºç©ºçš„æ—¶å€™æ˜¾ç¤ºçš„å›¾ç‰‡ å¯ä¸ºç©º
 	 * @param failLoadSrc
-	 *            Í¼Æ¬¼ÓÔØÊ§°ÜÏÔÊ¾µÄÍ¼Æ¬ ¿ÉÎª¿Õ
+	 *            å›¾ç‰‡åŠ è½½å¤±è´¥æ˜¾ç¤ºçš„å›¾ç‰‡ å¯ä¸ºç©º
 	 */
 	public static DisplayImageOptions getCommonOption(Options option, Integer loadingSrc, Integer emptyUriSrc,
 			Integer failLoadSrc) {
@@ -94,10 +94,10 @@ public class ImageManager {
 	}
 
 	/**
-	 * »ñÈ¡³£ÓÃµÄÍ¼Æ¬µÄĞÅÏ¢ÉèÖÃ
+	 * è·å–å¸¸ç”¨çš„å›¾ç‰‡çš„ä¿¡æ¯è®¾ç½®
 	 * 
 	 * @param Options
-	 *            Í¼Æ¬µÄ½âÂëÅäÖÃ
+	 *            å›¾ç‰‡çš„è§£ç é…ç½®
 	 * @see DisplayImageOptions
 	 */
 	public static DisplayImageOptions getCommonOption(Options option) {
@@ -117,7 +117,7 @@ public class ImageManager {
 	}
 
 	/**
-	 * Çå³ıËùÓĞÍ¼Æ¬»º´æ
+	 * æ¸…é™¤æ‰€æœ‰å›¾ç‰‡ç¼“å­˜
 	 */
 	public static void cleanCache() {
 		ImageLoader.getInstance().clearDiscCache();
@@ -125,7 +125,7 @@ public class ImageManager {
 	}
 
 	/**
-	 * ¼ì²é»º´æÏûºÄ´óĞ¡
+	 * æ£€æŸ¥ç¼“å­˜æ¶ˆè€—å¤§å°
 	 */
 	public static void checkCacheSize() {
 		Collection<String> listStrings = ImageLoader.getInstance().getMemoryCache().keys();

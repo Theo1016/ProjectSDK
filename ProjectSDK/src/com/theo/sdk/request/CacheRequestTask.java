@@ -7,7 +7,7 @@ import android.text.TextUtils;
 import android.util.Log;
 
 /**
- * »º´æ´¦ÀíTask
+ * ç¼“å­˜å¤„ç†Task
  * 
  * @author Theo
  */
@@ -20,27 +20,27 @@ public class CacheRequestTask implements Runnable {
 	private static final boolean DEBUG = true & Const.DEBUG;
 
 	/**
-	 * Ïß³Ì³Ø
+	 * çº¿ç¨‹æ± 
 	 */
 	private static final ExecutorService THREAD_POOL = Executors
 			.newFixedThreadPool(5,
 					new NamingThreadFactory("CacheRequestTask"));
 
-	/** cache ¹¤¾ß */
+	/** cache å·¥å…· */
 	private DataCache mDataCache;
 
 	/**
-	 * »ñÈ¡Êı¾İ½á¹ûµÄListener
+	 * è·å–æ•°æ®ç»“æœçš„Listener
 	 */
 	private OnCacheRequestListener mOnHttpRequestListener;
 
 	/**
-	 * ¹¹Ôìº¯Êı
+	 * æ„é€ å‡½æ•°
 	 * 
 	 * @param dataCache
 	 *            dataCache
 	 * @param listener
-	 *            »Øµ÷Listener
+	 *            å›è°ƒListener
 	 */
 	public CacheRequestTask(DataCache dataCache, OnCacheRequestListener listener) {
 		mDataCache = dataCache;
@@ -79,29 +79,29 @@ public class CacheRequestTask implements Runnable {
 	}
 
 	/**
-	 * ÈÎÎñÖ´ĞĞ
+	 * ä»»åŠ¡æ‰§è¡Œ
 	 */
 	public void execute() {
 		THREAD_POOL.execute(this);
 	}
 
 	/**
-	 * »ñÈ¡Êı¾İ½á¹ûµÄListener
+	 * è·å–æ•°æ®ç»“æœçš„Listener
 	 */
 	public interface OnCacheRequestListener {
 		/**
-		 * »ñÈ¡Êı¾İ³É¹¦
+		 * è·å–æ•°æ®æˆåŠŸ
 		 * 
 		 * @param result
-		 *            »ñÈ¡µ½µÄStringÊı¾İ
+		 *            è·å–åˆ°çš„Stringæ•°æ®
 		 */
 		void onSuccess(String result);
 
 		/**
-		 * »ñÈ¡Êı¾İÊ§°Ü
+		 * è·å–æ•°æ®å¤±è´¥
 		 * 
 		 * @param errorCode
-		 *            ´íÎóÂë
+		 *            é”™è¯¯ç 
 		 */
 		void onFailed(int errorCode);
 	}

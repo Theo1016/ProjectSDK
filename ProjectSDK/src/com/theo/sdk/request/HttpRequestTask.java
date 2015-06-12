@@ -22,7 +22,7 @@ import android.util.Log;
 
 /**
  * 
- * ÍøÂçÇëÇó
+ * ç½‘ç»œè¯·æ±‚
  * 
  * @author Theo
  * 
@@ -34,7 +34,7 @@ public class HttpRequestTask implements Runnable {
 	/** if enabled, logcat will output the log. */
 	private final boolean DEBUG = true & Const.DEBUG;
 
-	/** ·ÃÎÊÍøÂçÊ§°ÜÊ±£¬ÖØÊÔ¼ä¸ôÊ±¼ä */
+	/** è®¿é—®ç½‘ç»œå¤±è´¥æ—¶ï¼Œé‡è¯•é—´éš”æ—¶é—´ */
 	private final long SLEEP_TIME_WHILE_REQUEST_FAILED = 1000L;
 
 	private AbstractHttpClient client;
@@ -52,48 +52,48 @@ public class HttpRequestTask implements Runnable {
     private boolean cancelIsNotified;
 
 	/**
-	 * Ïß³Ì³Ø
+	 * çº¿ç¨‹æ± 
 	 */
 	private final ExecutorService THREAD_POOL = Executors.newFixedThreadPool(5,
 			new NamingThreadFactory("HttpRequestTask"));
 
 	/**
-	 * ²ÎÊıÌá½»·½Ê½
+	 * å‚æ•°æäº¤æ–¹å¼
 	 */
 	public enum RequestType {
-		/** GET·½Ê½Ìá½» */
+		/** GETæ–¹å¼æäº¤ */
 		GET,
-		/** POST·½Ê½Ìá½» */
+		/** POSTæ–¹å¼æäº¤ */
 		POST;
 	}
 
 	/**
-	 * ²ÎÊıÌá½»ÊÔ£¬Ä¬ÈÏPostÌá½»
+	 * å‚æ•°æäº¤è¯•ï¼Œé»˜è®¤Postæäº¤
 	 */
 	private RequestType mRequestType = RequestType.POST;
 
 	/**
-	 * ÈÎÎñÊÇ·ñÒÑ¾­É¾³ı
+	 * ä»»åŠ¡æ˜¯å¦å·²ç»åˆ é™¤
 	 */
 	private AtomicBoolean mIsCancel = new AtomicBoolean();
 
 	/**
-	 * Ïß³ÌÓÅÏÈ¼¶
+	 * çº¿ç¨‹ä¼˜å…ˆçº§
 	 */
 	private int mPriority;
 
 	/**
-	 * ·ÃÎÊUrl
+	 * è®¿é—®Url
 	 */
 	private String mUrl;
 
 	/**
-	 * ²ÎÊı
+	 * å‚æ•°
 	 */
 	private List<NameValuePair> mParams;
 
 	/**
-	 * ÍøÂçÇëÇó½á¹û·´À¡
+	 * ç½‘ç»œè¯·æ±‚ç»“æœåé¦ˆ
 	 */
 	private OnHttpRequestTaskListener mOnHttpRequestTaskListener;
 	
@@ -105,20 +105,20 @@ public class HttpRequestTask implements Runnable {
 	/** context */
 	private Context mContext;
 
-	/** Url¹ıÂËÆ÷ */
+	/** Urlè¿‡æ»¤å™¨ */
 	private URLFilter mURLFilter;
 
 	/**
-	 * ¹¹Ôìº¯Êı
+	 * æ„é€ å‡½æ•°
 	 * 
 	 * @param context
 	 *            Context
 	 * @param url
-	 *            ÇëÇóµØÖ·
+	 *            è¯·æ±‚åœ°å€
 	 * @param params
-	 *            ÇëÇó²ÎÊı
+	 *            è¯·æ±‚å‚æ•°
 	 * @param listener
-	 *            »Øµ÷Listener
+	 *            å›è°ƒListener
 	 */
 	public HttpRequestTask(Context context, String url,
 			List<NameValuePair> params, ResponseHandlerInterface listener) {
@@ -126,18 +126,18 @@ public class HttpRequestTask implements Runnable {
 	}
 	
 	/**
-	 * ¹¹Ôìº¯Êı
+	 * æ„é€ å‡½æ•°
 	 * 
 	 * @param context
 	 *            Context
 	 * @param url
-	 *            ÇëÇóµØÖ·
+	 *            è¯·æ±‚åœ°å€
 	 * @param params
-	 *            ÇëÇó²ÎÊı
+	 *            è¯·æ±‚å‚æ•°
 	 * @param priority
-	 *            Ïß³ÌÓÅÏÈ¼¶
+	 *            çº¿ç¨‹ä¼˜å…ˆçº§
 	 * @param responseHandlerInterface
-	 *            »Øµ÷responseHandlerInterface
+	 *            å›è°ƒresponseHandlerInterface
 	 */
 	public HttpRequestTask(Context context, String url,
 			List<NameValuePair> params, int priority,
@@ -158,10 +158,10 @@ public class HttpRequestTask implements Runnable {
 			Log.d(TAG,
 					"---- start web request time:" + System.currentTimeMillis());
 		}
-		// Ïß³ÌÓÅ»¯¼¶
+		// çº¿ç¨‹ä¼˜åŒ–çº§
 		Process.setThreadPriority(mPriority);
 		if (mIsCancel.get()) {
-			// ÇëÇóÒÑ¾­³·Ïú
+			// è¯·æ±‚å·²ç»æ’¤é”€
 			return;
 		}
 		if (mUrl == null) {
@@ -171,7 +171,7 @@ public class HttpRequestTask implements Runnable {
 			}
 			return;
 		}
-		// ¹ıÂËUrl
+		// è¿‡æ»¤Url
 		if (mURLFilter != null) {
 			mUrl = mURLFilter.filter(mUrl, mParams);
 		}
@@ -241,7 +241,7 @@ public class HttpRequestTask implements Runnable {
 
         HttpResponse response = client.execute(request, context);
 
-        //»ñÈ¡sessionid²¢ÉèÖÃ½øheader
+        //è·å–sessionidå¹¶è®¾ç½®è¿›header
         Header h = response.getFirstHeader("Set-Cookie");
         if(h != null){
         	String sessionid = h.getValue();
@@ -291,21 +291,21 @@ public class HttpRequestTask implements Runnable {
         return isCancelled();
     }
 	/**
-	 * ÈÎÎñÖ´ĞĞ
+	 * ä»»åŠ¡æ‰§è¡Œ
 	 */
 	public void execute() {
 		THREAD_POOL.execute(this);
 	}
 
 	/**
-	 * @return ÊÇ·ñÒÑ¾­³·Ïú
+	 * @return æ˜¯å¦å·²ç»æ’¤é”€
 	 */
 	public boolean isCancel() {
 		return mIsCancel.get();
 	}
 
 	/**
-	 * @param ³·ÏúÈÎÎñÖ´ĞĞ
+	 * @param æ’¤é”€ä»»åŠ¡æ‰§è¡Œ
 	 */
 	public void cancel() {
 		mIsCancel.set(true);
@@ -327,48 +327,48 @@ public class HttpRequestTask implements Runnable {
 	}
 
 	/**
-	 * ÉèÖÃ¹ıÂËÆ÷
+	 * è®¾ç½®è¿‡æ»¤å™¨
 	 * 
 	 * @param urlFilter
-	 *            ¹ıÂËÆ÷
+	 *            è¿‡æ»¤å™¨
 	 */
 	public void setURLFilter(URLFilter urlFilter) {
 		this.mURLFilter = urlFilter;
 	}
 
 	/**
-	 * »ñÈ¡Êı¾İ½á¹ûµÄListener
+	 * è·å–æ•°æ®ç»“æœçš„Listener
 	 */
 	public interface OnHttpRequestTaskListener {
 		/**
-		 * »ñÈ¡Êı¾İ³É¹¦
+		 * è·å–æ•°æ®æˆåŠŸ
 		 * 
 		 * @param result
-		 *            »ñÈ¡µ½µÄStringÊı¾İ
+		 *            è·å–åˆ°çš„Stringæ•°æ®
 		 */
 		void onSuccess(String result);
 
 		/**
-		 * »ñÈ¡Êı¾İÊ§°Ü
+		 * è·å–æ•°æ®å¤±è´¥
 		 * 
 		 * @param errorCode
-		 *            ´íÎóÂë
+		 *            é”™è¯¯ç 
 		 */
 		void onFailed(int errorCode);
 	}
 
 	/**
-	 * Url¹ıÂËÆ÷
+	 * Urlè¿‡æ»¤å™¨
 	 */
 	public interface URLFilter {
 		/**
-		 * ¹ıÂËUrl
+		 * è¿‡æ»¤Url
 		 * 
 		 * @param requestUrl
-		 *            ÇëÇóµÄUrl
+		 *            è¯·æ±‚çš„Url
 		 * @param params
-		 *            ÇëÇó²ÎÊı
-		 * @return ¹ıÂËºóµÄUrl
+		 *            è¯·æ±‚å‚æ•°
+		 * @return è¿‡æ»¤åçš„Url
 		 */
 		String filter(String requestUrl, List<NameValuePair> params);
 	}

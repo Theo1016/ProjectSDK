@@ -9,12 +9,12 @@ import com.theo.sdk.utils.LogUtils;
 
 
 /**
- * ¼ì²â»º´æ
+ * æ£€æµ‹ç¼“å­˜
  * @author Theo
  *
  */
 public class CacheSizeThread extends Thread {
-	// Ã¿¸ôTime £¬¼ì²âÒ»´ÎÄÚ´æ
+	// æ¯éš”Time ï¼Œæ£€æµ‹ä¸€æ¬¡å†…å­˜
 	int Time = 30000;
 	
 	@Override
@@ -31,7 +31,7 @@ public class CacheSizeThread extends Thread {
 
 	/**
 	 * 
-	 * ¼ì²â»º´æ´óĞ¡
+	 * æ£€æµ‹ç¼“å­˜å¤§å°
 	 * 
 	 */
 	public static void checkCacheSize() {

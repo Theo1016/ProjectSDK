@@ -27,7 +27,7 @@ import android.util.Base64;
 import android.widget.LinearLayout.LayoutParams;
 
 /**
- * ÊÓÍ¼¹¤¾ßÀà
+ * è§†å›¾å·¥å…·ç±»
  * 
  * @author Theo
  * 
@@ -35,7 +35,7 @@ import android.widget.LinearLayout.LayoutParams;
 public class ViewUtils {
 
 	/**
-	 * »ñÈ¡Ô²ĞÎimageview
+	 * è·å–åœ†å½¢imageview
 	 * 
 	 * @param context
 	 * @param width
@@ -56,59 +56,59 @@ public class ViewUtils {
 	}
 
 	/**
-	 * Î»Í¼Ñ¹Ëõ
+	 * ä½å›¾å‹ç¼©
 	 * 
 	 * @param image
-	 *            ´ıÑ¹ËõÍ¼Æ¬
-	 * @parame size Í¼Æ¬Ä¿±ê´óĞ¡£¬µ¥Î»KB
+	 *            å¾…å‹ç¼©å›¾ç‰‡
+	 * @parame size å›¾ç‰‡ç›®æ ‡å¤§å°ï¼Œå•ä½KB
 	 * @return
 	 */
 	public static Bitmap compressImage(Bitmap image, int size) {
 		ByteArrayOutputStream baos = new ByteArrayOutputStream();
-		// Ñ¹Ëõ·½·¨£¬100±íÊ¾²»Ñ¹Ëõ£¬°ÑÑ¹ËõºóµÄÊı¾İ´æ·Åµ½baosÖĞ
+		// å‹ç¼©æ–¹æ³•ï¼Œ100è¡¨ç¤ºä¸å‹ç¼©ï¼ŒæŠŠå‹ç¼©åçš„æ•°æ®å­˜æ”¾åˆ°baosä¸­
 		image.compress(Bitmap.CompressFormat.JPEG, 100, baos);
 		int options = 100;
-		// ´óÓÚ²ÎÊıÖµÔò¼ÌĞøÑ¹Ëõ
+		// å¤§äºå‚æ•°å€¼åˆ™ç»§ç»­å‹ç¼©
 		while (baos.toByteArray().length / 1024 > size) {
-			// ÖØÖÃbaos¼´Çå¿Õbaos
+			// é‡ç½®baoså³æ¸…ç©ºbaos
 			baos.reset();
-			// Ñ¹Ëõoptions%£¬°ÑÑ¹ËõºóµÄÊı¾İ´æ·Åµ½baosÖĞ
+			// å‹ç¼©options%ï¼ŒæŠŠå‹ç¼©åçš„æ•°æ®å­˜æ”¾åˆ°baosä¸­
 			image.compress(Bitmap.CompressFormat.JPEG, options, baos);
-			// Ñ¹Ëõ±ÈÀıÌá¸ß
+			// å‹ç¼©æ¯”ä¾‹æé«˜
 			options -= 5;
 		}
-		// °ÑÑ¹ËõºóµÄÊı¾İbaos´æ·Åµ½ByteArrayInputStreamÖĞ
+		// æŠŠå‹ç¼©åçš„æ•°æ®baoså­˜æ”¾åˆ°ByteArrayInputStreamä¸­
 		ByteArrayInputStream isBm = new ByteArrayInputStream(baos.toByteArray());
-		// °ÑByteArrayInputStreamÊı¾İÉú³ÉÍ¼Æ¬
+		// æŠŠByteArrayInputStreamæ•°æ®ç”Ÿæˆå›¾ç‰‡
 		Bitmap bitmap = BitmapFactory.decodeStream(isBm, null, null);
 		return bitmap;
 	}
 
 	/**
-	 * »ñÈ¡²Ã¼ôºóµÄÔ²ĞÎÍ¼Æ¬(ÈçÓÃ»§Ô²ĞÎÍ·Ïñ)
+	 * è·å–è£å‰ªåçš„åœ†å½¢å›¾ç‰‡(å¦‚ç”¨æˆ·åœ†å½¢å¤´åƒ)
 	 * 
 	 * @param radius
-	 *            °ë¾¶
+	 *            åŠå¾„
 	 */
 	public static Bitmap getCroppedRoundBitmap(Bitmap bmp, int radius) {
 		Bitmap scaledSrcBmp;
 		// int diameter = radius * 2;
 		int diameter = radius;
-		// ÎªÁË·ÀÖ¹¿í¸ß²»ÏàµÈ£¬Ôì³ÉÔ²ĞÎÍ¼Æ¬±äĞÎ£¬Òò´Ë½ØÈ¡³¤·½ĞÎÖĞ´¦ÓÚÖĞ¼äÎ»ÖÃ×î´óµÄÕı·½ĞÎÍ¼Æ¬
+		// ä¸ºäº†é˜²æ­¢å®½é«˜ä¸ç›¸ç­‰ï¼Œé€ æˆåœ†å½¢å›¾ç‰‡å˜å½¢ï¼Œå› æ­¤æˆªå–é•¿æ–¹å½¢ä¸­å¤„äºä¸­é—´ä½ç½®æœ€å¤§çš„æ­£æ–¹å½¢å›¾ç‰‡
 		int bmpWidth = bmp.getWidth();
 		int bmpHeight = bmp.getHeight();
 		int squareWidth;
 		int squareHeight;
 		int x, y;
 		Bitmap squareBitmap;
-		if (bmpHeight > bmpWidth) {// ¸ß´óÓÚ¿í
+		if (bmpHeight > bmpWidth) {// é«˜å¤§äºå®½
 			squareWidth = squareHeight = bmpWidth;
 			x = 0;
 			y = (bmpHeight - bmpWidth) / 2;
-			// ½ØÈ¡Õı·½ĞÎÍ¼Æ¬
+			// æˆªå–æ­£æ–¹å½¢å›¾ç‰‡
 			squareBitmap = Bitmap.createBitmap(bmp, x, y, squareWidth,
 					squareHeight);
-		} else if (bmpHeight < bmpWidth) {// ¿í´óÓÚ¸ß
+		} else if (bmpHeight < bmpWidth) {// å®½å¤§äºé«˜
 			squareWidth = squareHeight = bmpHeight;
 			x = (bmpWidth - bmpHeight) / 2;
 			y = 0;
@@ -145,11 +145,11 @@ public class ViewUtils {
 	}
 
 	/**
-	 * ¶ÁÈ¡Í¼Æ¬ÊôĞÔ£ºĞı×ª½Ç¶È
+	 * è¯»å–å›¾ç‰‡å±æ€§ï¼šæ—‹è½¬è§’åº¦
 	 * 
 	 * @param path
-	 *            Í¼Æ¬¾ø¶ÔÂ·¾¶
-	 * @return degree Ğı×ªµÄ½Ç¶È
+	 *            å›¾ç‰‡ç»å¯¹è·¯å¾„
+	 * @return degree æ—‹è½¬çš„è§’åº¦
 	 */
 	public static int readPictureDegree(String path) {
 
@@ -177,7 +177,7 @@ public class ViewUtils {
 	}
 
 	/**
-	 * Î»Í¼×ª»»Îªdrwable
+	 * ä½å›¾è½¬æ¢ä¸ºdrwable
 	 * 
 	 * @param context
 	 * @param bm
@@ -190,31 +190,31 @@ public class ViewUtils {
 	}
 
 	/**
-	 * ½«Drawable×ª»¯ÎªBitmap
+	 * å°†Drawableè½¬åŒ–ä¸ºBitmap
 	 * 
 	 * @param drawable
 	 * @return
 	 */
 	public static Bitmap drawableToBitmap(Drawable drawable) {
-		// È¡ drawable µÄ³¤¿í
+		// å– drawable çš„é•¿å®½
 		int w = drawable.getIntrinsicWidth();
 		int h = drawable.getIntrinsicHeight();
 
-		// È¡ drawable µÄÑÕÉ«¸ñÊ½
+		// å– drawable çš„é¢œè‰²æ ¼å¼
 		Bitmap.Config config = drawable.getOpacity() != PixelFormat.OPAQUE ? Bitmap.Config.ARGB_8888
 				: Bitmap.Config.RGB_565;
-		// ½¨Á¢¶ÔÓ¦ bitmap
+		// å»ºç«‹å¯¹åº” bitmap
 		Bitmap bitmap = Bitmap.createBitmap(w, h, config);
-		// ½¨Á¢¶ÔÓ¦ bitmap µÄ»­²¼
+		// å»ºç«‹å¯¹åº” bitmap çš„ç”»å¸ƒ
 		Canvas canvas = new Canvas(bitmap);
 		drawable.setBounds(0, 0, w, h);
-		// °Ñ drawable ÄÚÈİ»­µ½»­²¼ÖĞ
+		// æŠŠ drawable å†…å®¹ç”»åˆ°ç”»å¸ƒä¸­
 		drawable.draw(canvas);
 		return bitmap;
 	}
 
 	/**
-	 * »ñµÃ´øµ¹Ó°µÄÍ¼Æ¬
+	 * è·å¾—å¸¦å€’å½±çš„å›¾ç‰‡
 	 * 
 	 * @param bitmap
 	 * @return
@@ -255,7 +255,7 @@ public class ViewUtils {
 	}
 
 	/**
-	 * bitmap×ªÎªbase64
+	 * bitmapè½¬ä¸ºbase64
 	 * 
 	 * @param bitmap
 	 * @return
@@ -291,7 +291,7 @@ public class ViewUtils {
 	}
 
 	/**
-	 * base64×ªÎªbitmap
+	 * base64è½¬ä¸ºbitmap
 	 * 
 	 * @param base64Data
 	 * @return
@@ -302,11 +302,11 @@ public class ViewUtils {
 	}
 
 	/**
-	 * »ñÈ¡Ô²½ÇÍ¼Æ¬Î»Í¼
+	 * è·å–åœ†è§’å›¾ç‰‡ä½å›¾
 	 * 
 	 * @param bitmap
 	 * @param roundPx
-	 *            Ô²½Ç¶ÈÊı
+	 *            åœ†è§’åº¦æ•°
 	 * @return
 	 */
 	public static Bitmap getRoundedCornerBitmap(Bitmap bitmap, float roundPx) {
@@ -322,14 +322,14 @@ public class ViewUtils {
 		canvas.drawARGB(0, 0, 0, 0);
 		paint.setColor(color);
 		canvas.drawRoundRect(rectF, roundPx, roundPx, paint);
-		// È·±£Í¼²ãµş¼ÓµÄÊ±ºòÈ¥µÄÏğ½ºµÄÒ»²¿·Ö
+		// ç¡®ä¿å›¾å±‚å åŠ çš„æ—¶å€™å»çš„æ©¡èƒ¶çš„ä¸€éƒ¨åˆ†
 		paint.setXfermode(new PorterDuffXfermode(Mode.SRC_IN));
 		canvas.drawBitmap(bitmap, rect, rect, paint);
 		return output;
 	}
 
 	/**
-	 * Î»Í¼´óĞ¡³ß´çËõ·Å£¬Î»Í¼Õ¼ÓÃµÄÄÚ´æ¿Õ¼ä²»»á¼õĞ¡
+	 * ä½å›¾å¤§å°å°ºå¯¸ç¼©æ”¾ï¼Œä½å›¾å ç”¨çš„å†…å­˜ç©ºé—´ä¸ä¼šå‡å°
 	 * 
 	 * @param bitmap
 	 * @param width
@@ -348,7 +348,7 @@ public class ViewUtils {
 	}
 
 	/**
-	 * »ñÈ¡×ÊÔ´ÎÄ¼şµÄÍ¼Æ¬Î»Í¼ĞÅÏ¢
+	 * è·å–èµ„æºæ–‡ä»¶çš„å›¾ç‰‡ä½å›¾ä¿¡æ¯
 	 * 
 	 * @param resId
 	 * @param context
@@ -359,7 +359,7 @@ public class ViewUtils {
 	}
 
 	/**
-	 * Î»Í¼×ª»»Îª¶ş½øÖÆÊı×é
+	 * ä½å›¾è½¬æ¢ä¸ºäºŒè¿›åˆ¶æ•°ç»„
 	 * 
 	 * @param bm
 	 *            Bitmap
@@ -376,7 +376,7 @@ public class ViewUtils {
 	}
 
 	/**
-	 * ¶ş½øÖÆÊı×é×ª»»³Ébitmap
+	 * äºŒè¿›åˆ¶æ•°ç»„è½¬æ¢æˆbitmap
 	 * 
 	 * @param b
 	 * @return Bitmap
@@ -390,7 +390,7 @@ public class ViewUtils {
 	}
 
 	/**
-	 * ½«×Ö·û´®×ª»»³ÉBitmap
+	 * å°†å­—ç¬¦ä¸²è½¬æ¢æˆBitmap
 	 * 
 	 * @param string
 	 * @return

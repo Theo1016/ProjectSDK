@@ -1,29 +1,29 @@
 package com.theo.sdk.constant;
 
 /**
- * ³£Á¿
+ * å¸¸é‡
  * 
  * @author Theo
  * 
  */
 public class Const {
-	/** Í¼Æ¬»º´æ */
+	/** å›¾ç‰‡ç¼“å­˜ */
 	public static final int memeryCacheSize = 20 * 1024 * 1024;
 	public static final int disCacheSize = 100 * 1024 * 1024;
 	public static final int disCacheCount = 500;
-	/** ×Ö·ûÊı¾İ»º´æ */
+	/** å­—ç¬¦æ•°æ®ç¼“å­˜ */
 	public static final int DISCACHESIZESTRING = 50 * 1024 * 1024;
-	/** ×Ö·ûÊı¾İ»º´æÊ±¼ä */
+	/** å­—ç¬¦æ•°æ®ç¼“å­˜æ—¶é—´ */
 	public static final long CACHEALIVETIME = 5 * 60 * 1000;
-	/** »º´æÃû³Æ */
+	/** ç¼“å­˜åç§° */
 	public static final String CACHENAME = "TEMP_CACHE";
 	public static final int CACHE_TIME_DEFAULT = 60 * 1000;
 	public static final int TIME_HOUR = 60 * 60;
 	public static final int TIME_DAY = TIME_HOUR * 24;
-	/** ×Ô¶¯»º´æÊ±¼ä£¬Ä¬ÈÏ»º´æÊ±¼äÎªCACHE_TIME_DEFAULT */
+	/** è‡ªåŠ¨ç¼“å­˜æ—¶é—´ï¼Œé»˜è®¤ç¼“å­˜æ—¶é—´ä¸ºCACHE_TIME_DEFAULT */
 	public static final boolean isAutoTime = true;
-	/** ÈÕÖ¾Í³Ò»Tag */
+	/** æ—¥å¿—ç»Ÿä¸€Tag */
 	public static final String LogTag = "Calabar";
-	/** DEBUG¿ª¹Ø */
+	/** DEBUGå¼€å…³ */
 	public static final boolean DEBUG = false;
 }

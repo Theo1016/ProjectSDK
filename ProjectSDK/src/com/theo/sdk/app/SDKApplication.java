@@ -7,7 +7,7 @@ import android.app.Application;
 import android.content.Context;
 
 /**
- * Application»ùÀà
+ * ApplicationåŸºç±»
  * @author Theo
  *
  */
@@ -21,13 +21,13 @@ public class SDKApplication extends Application{
 		getLogSwitch();
 		appContext = getApplicationContext();
 		ImageManager.initImageLoader(appContext);
-		// ÊµÊ±¼à²âÄÚ´æ
+		// å®æ—¶ç›‘æµ‹å†…å­˜
 		myCacheSizeThread = new CacheSizeThread();
 		myCacheSizeThread.start();
 	}
 
 	/**
-	 * »ñÈ¡ÈÕÖ¾¿ª¹Ø
+	 * è·å–æ—¥å¿—å¼€å…³
 	 */
 	private void getLogSwitch() {
 		try {

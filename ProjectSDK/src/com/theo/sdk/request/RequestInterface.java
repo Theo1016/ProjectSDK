@@ -4,8 +4,8 @@ import com.theo.sdk.request.HttpRequestHandler.OnHttpRequestHandlerListener;
 
 public interface RequestInterface {
 	/**
-     * 发起数据请求
-     * @param listener 数据请求结果Listener
+     * 鍙戣捣鏁版嵁璇锋眰
+     * @param listener 鏁版嵁璇锋眰缁撴灉Listener
      */
     public void request(final OnHttpRequestHandlerListener listener);
 }

@@ -20,37 +20,37 @@ public class HttpRequestHandler implements RequestInterface{
 	protected Context mContext;
 	
 	/** 
-	 * ÇëÇóUrl
+	 * è¯·æ±‚Url
 	 */
 	private String requestUrl;
 	
 	/** 
-	 * ÇëÇó²ÎÊı
+	 * è¯·æ±‚å‚æ•°
 	 */
 	private List<NameValuePair> requestParam;
 	
 	/**
-	 * ÊÇ·ñÈÎÎñÒÑ¾­È¡Ïû
+	 * æ˜¯å¦ä»»åŠ¡å·²ç»å–æ¶ˆ
 	 */
 	private boolean mIsCanceled;
 	
 	/**
-	 * Êı¾İÇëÇó½á¹û»Øµ÷Listener
+	 * æ•°æ®è¯·æ±‚ç»“æœå›è°ƒListener
 	 */
 	private OnHttpRequestHandlerListener mOnHttpRequestHandlerListener;
 	
 	/**
-	 * Òì²½Http»Øµ÷
+	 * å¼‚æ­¥Httpå›è°ƒ
 	 */
 	private AsyncHttpResponseHandler mAsyncHttpResponseHandler;
 	
 	/**
-	 * ÍøÂçÊı¾İÇëÇóTask
+	 * ç½‘ç»œæ•°æ®è¯·æ±‚Task
 	 */
 	private HttpRequestTask mHttpRequestTask;
 	
 	/**
-	 * Ïß³ÌÓÅÏÈ¼¶
+	 * çº¿ç¨‹ä¼˜å…ˆçº§
 	 */
 	private int mPriority = Process.THREAD_PRIORITY_DEFAULT;
 	
@@ -60,7 +60,7 @@ public class HttpRequestHandler implements RequestInterface{
 	public static final boolean DEBUG = true & Const.DEBUG;
 	
 	/**
-	 * ²ÎÊıÌá½»ÊÔ£¬Ä¬ÈÏPostÌá½»
+	 * å‚æ•°æäº¤è¯•ï¼Œé»˜è®¤Postæäº¤
 	 */
 	private HttpRequestTask.RequestType mRequestType = HttpRequestTask.RequestType.POST;
 	
@@ -74,14 +74,14 @@ public class HttpRequestHandler implements RequestInterface{
 
 	
 	/**
-	 * ·¢ÆğÊı¾İÇëÇó
+	 * å‘èµ·æ•°æ®è¯·æ±‚
 	 * 
 	 * @param listener
-	 *            Êı¾İÇëÇó½á¹ûListener
+	 *            æ•°æ®è¯·æ±‚ç»“æœListener
 	 */
 	@Override
 	public void request(final OnHttpRequestHandlerListener listener) {
-		//³õÊ¼»¯ÇëÇóµÄ»Øµ÷£¬¼°ÆäËü±ØÒªÄÚÈİ
+		//åˆå§‹åŒ–è¯·æ±‚çš„å›è°ƒï¼ŒåŠå…¶å®ƒå¿…è¦å†…å®¹
 		init();
 		mOnHttpRequestHandlerListener = listener;
 		mHttpRequestTask = new HttpRequestTask(mContext, requestUrl,
@@ -90,7 +90,7 @@ public class HttpRequestHandler implements RequestInterface{
 		mHttpRequestTask.setURLFilter(new HttpRequestTask.URLFilter() {
 			@Override
 			public String filter(String requestUrl, List<NameValuePair> params) {
-				// ¹ıÂË²¢Ìí¼ÓÍ³Ò»ĞèÒªµÄUrl²ÎÊı
+				// è¿‡æ»¤å¹¶æ·»åŠ ç»Ÿä¸€éœ€è¦çš„Urlå‚æ•°
 				String url = filterParams(requestUrl, params);
 				return url;
 			}
@@ -98,10 +98,10 @@ public class HttpRequestHandler implements RequestInterface{
 	}
 	
 	/**
-	 * ³õÊ¼»¯ÇëÇóµÄ»Øµ÷£¬¼°ÆäËü±ØÒªÄÚÈİ
+	 * åˆå§‹åŒ–è¯·æ±‚çš„å›è°ƒï¼ŒåŠå…¶å®ƒå¿…è¦å†…å®¹
 	 */
 	private void init() {
-		// ÇëÇóÊı¾İÊ±£¬ÒªÇó»Øµ÷
+		// è¯·æ±‚æ•°æ®æ—¶ï¼Œè¦æ±‚å›è°ƒ
 		if (mOnHttpRequestHandlerListener != null) {
 			mAsyncHttpResponseHandler = new AsyncHttpResponseHandler() {
 				
@@ -113,7 +113,7 @@ public class HttpRequestHandler implements RequestInterface{
 				@Override
 				public void onFailure(int statusCode, Header[] headers,
 						byte[] responseBody, Throwable error) {
-					// ´ËÇëÇóÒÑ¾­±»Cancel
+					// æ­¤è¯·æ±‚å·²ç»è¢«Cancel
 					if (mIsCanceled) {
 						return;
 					}
@@ -124,13 +124,13 @@ public class HttpRequestHandler implements RequestInterface{
 	}
 	
 	/**
-	 * ¹ıÂË²ÎÊı£¬½«UrlÖĞÄÇĞ©ÔÚParamÖĞ³öÏÖµÄ²ÎÊı¹ıÂËµô
+	 * è¿‡æ»¤å‚æ•°ï¼Œå°†Urlä¸­é‚£äº›åœ¨Paramä¸­å‡ºç°çš„å‚æ•°è¿‡æ»¤æ‰
 	 * 
 	 * @param orginalUrl
-	 *            Ô­Ê¼ÇëÇóUrl
+	 *            åŸå§‹è¯·æ±‚Url
 	 * @param params
-	 *            ÇëÇó²ÎÊı
-	 * @return ¹ıÂËºóµÄUrl
+	 *            è¯·æ±‚å‚æ•°
+	 * @return è¿‡æ»¤åçš„Url
 	 */
 	private String filterParams(String orginalUrl, List<NameValuePair> params) {
 
@@ -156,7 +156,7 @@ public class HttpRequestHandler implements RequestInterface{
 	}
 	
 	/**
-	 * Êı¾İ»Øµ÷
+	 * æ•°æ®å›è°ƒ
 	 * 
 	 * @author Theo
 	 * 
@@ -164,18 +164,18 @@ public class HttpRequestHandler implements RequestInterface{
 	public interface OnHttpRequestHandlerListener {
 		
 		/**
-		 * »ñÈ¡Êı¾İ³É¹¦
+		 * è·å–æ•°æ®æˆåŠŸ
 		 * 
 		 * @param result
-		 *            »ñÈ¡µ½µÄStringÊı¾İ
+		 *            è·å–åˆ°çš„Stringæ•°æ®
 		 */
 		void onSuccess(String result);
 
 		/**
-		 * »ñÈ¡Êı¾İÊ§°Ü
+		 * è·å–æ•°æ®å¤±è´¥
 		 * 
 		 * @param errorCode
-		 *            ´íÎóÂë
+		 *            é”™è¯¯ç 
 		 */
 		void onFailed(int errorCode);
 	

@@ -5,17 +5,17 @@ import java.util.List;
 import android.app.Activity;
 
 /**
- * ActivityÈÎÎñ¶ÑÕ»
+ * Activityä»»åŠ¡å †æ ˆ
  * @author Theo
  *
  */
 public class ActivityTaskManager {
 	private static ActivityTaskManager instance;
-	/** Activity¼¯ºÏ */
+	/** Activityé›†åˆ */
 	private static List<Activity> mList = new LinkedList<Activity>();
 
 	/**
-	 * »ñÈ¡µ¥ÊµÀı ¶ÔÏó
+	 * è·å–å•å®ä¾‹ å¯¹è±¡
 	 * 
 	 * @return ActivityTaskManager
 	 */
@@ -27,10 +27,10 @@ public class ActivityTaskManager {
 	}
 	
 	/**
-	 * Ìí¼ÓActivity
+	 * æ·»åŠ Activity
 	 * 
 	 * @param activity
-	 *            ´ıÌí¼ÓµÄActivity
+	 *            å¾…æ·»åŠ çš„Activity
 	 */
 	public static final void addActivity2Task(Activity mActivity) {
 		if (!mList.contains(mActivity))
@@ -38,10 +38,10 @@ public class ActivityTaskManager {
 	}
 
 	/**
-	 * ÒÆ³ıActivity
+	 * ç§»é™¤Activity
 	 * 
 	 * @param activity
-	 *            ´ıÒÆ³ıµÄActivity
+	 *            å¾…ç§»é™¤çš„Activity
 	 */
 	public static final void destoryActivity4Task(Activity mActivity) {
 		if (mList.contains(mActivity))
@@ -49,10 +49,10 @@ public class ActivityTaskManager {
 	}
 
 	/**
-	 * ÒÆ³ıÖ¸¶¨ActivityÒÔÍâµÄÆäËûActivity
+	 * ç§»é™¤æŒ‡å®šActivityä»¥å¤–çš„å…¶ä»–Activity
 	 * 
 	 * @param mActivity
-	 *            Ö¸¶¨µÄActivity
+	 *            æŒ‡å®šçš„Activity
 	 */
 	public static final void finishOtherActity(Activity mActivity) {
 		for (Activity activity : mList) {
@@ -62,9 +62,9 @@ public class ActivityTaskManager {
 	}
 
 	/**
-	 * ½áÊøActivity¶ÓÁĞÖĞËùÓĞActivity
+	 * ç»“æŸActivityé˜Ÿåˆ—ä¸­æ‰€æœ‰Activity
 	 * 
-	 * @introduce Ò»¼üÍË³ö¶à¸öActivity»òÕßÀàËÆ·µ»ØÖ÷½çÃæ¹¦ÄÜÊÇ¿ÉÊ¹ÓÃ
+	 * @introduce ä¸€é”®é€€å‡ºå¤šä¸ªActivityæˆ–è€…ç±»ä¼¼è¿”å›ä¸»ç•Œé¢åŠŸèƒ½æ˜¯å¯ä½¿ç”¨
 	 */
 	public static final void removeAllActivity4Task() {
 		for (Activity activity : mList) {

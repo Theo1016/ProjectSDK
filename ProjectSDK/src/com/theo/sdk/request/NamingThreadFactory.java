@@ -21,17 +21,17 @@ import java.util.concurrent.ThreadFactory;
 import java.util.concurrent.atomic.AtomicInteger;
 
 /**
- * Thread¹¤³§
+ * Threadå·¥å‚
  * @author Theo
  */
 public class NamingThreadFactory implements ThreadFactory {
 
 
-    /** ÕæÕı¹¹ÔìÏß³ÌµÄFactory */
+    /** çœŸæ­£æ„é€ çº¿ç¨‹çš„Factory */
     private final ThreadFactory mBackingFactory;
-    /** Ïß³ÌÃûÇ°×º */
+    /** çº¿ç¨‹åå‰ç¼€ */
     private final String mPrefix;
-    /** Ïß³Ì¼ÆÊıÆ÷ */
+    /** çº¿ç¨‹è®¡æ•°å™¨ */
     private final AtomicInteger mCount = new AtomicInteger(0);
 
     /**
@@ -40,7 +40,7 @@ public class NamingThreadFactory implements ThreadFactory {
      * thread.
      * 
      * @param prefix
-     *            Ïß³ÌÃûÇ°×º
+     *            çº¿ç¨‹åå‰ç¼€
      */
     public NamingThreadFactory(String prefix) {
         this(prefix, Executors.defaultThreadFactory());
@@ -52,7 +52,7 @@ public class NamingThreadFactory implements ThreadFactory {
      * thread.
      * 
      * @param prefix
-     *            Ïß³ÌÃûÇ°×º
+     *            çº¿ç¨‹åå‰ç¼€
      * @param backingFactory
      *            the factory that will actually create the threads
      */
@@ -70,9 +70,9 @@ public class NamingThreadFactory implements ThreadFactory {
 
     /**
      * 
-     * ¹¹ÔìÏß³ÌÃû³Æ·½·¨
-     * @param ordinal ĞòºÅ
-     * @return Ïß³ÌÃû
+     * æ„é€ çº¿ç¨‹åç§°æ–¹æ³•
+     * @param ordinal åºå·
+     * @return çº¿ç¨‹å
      */
     private String makeName(int ordinal) {
         return String.format("%s-%d", mPrefix, ordinal);

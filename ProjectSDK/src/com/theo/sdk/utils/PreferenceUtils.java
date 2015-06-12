@@ -6,7 +6,7 @@ import android.content.SharedPreferences.Editor;
 import android.text.TextUtils;
 
 /**
- * preference¹¤¾ßÀà
+ * preferenceå·¥å…·ç±»
  * @author Theo
  *
  */
@@ -17,10 +17,10 @@ public class PreferenceUtils {
 	static SharedPreferences sPreferences;
 
 	/**
-	 * ´æ´¢Êı¾İµ½ÁÙÊ±ÎÄ¼şÖĞ
+	 * å­˜å‚¨æ•°æ®åˆ°ä¸´æ—¶æ–‡ä»¶ä¸­
 	 * @param context
 	 * @param key
-	 * @param share_name  ÁÙÊ±ÎÄ¼şÃû  ¿ÉÎªnull,Ä¬ÈÏcalabar_preference
+	 * @param share_name  ä¸´æ—¶æ–‡ä»¶å  å¯ä¸ºnull,é»˜è®¤calabar_preference
 	 * @param content
 	 */
 	public static void saveData(Context context, String key, String share_name, String content) {

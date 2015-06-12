@@ -5,24 +5,24 @@ import java.util.Arrays;
 import org.apache.http.Header;
 
 /**
- * ÇëÇóBEAN
+ * è¯·æ±‚BEAN
  * @author Theo
  *
  */
 public class ResponseBean {
-	// ÏìÓ¦Âë
+	// å“åº”ç 
 	public int code;
-	// ´¦Àí¹ıµÄ·µ»ØÊı¾İ
+	// å¤„ç†è¿‡çš„è¿”å›æ•°æ®
 	public Object data;
-	// ´íÎóĞÅÏ¢
+	// é”™è¯¯ä¿¡æ¯
 	public String errorMsg;
-	// Í¶Í·¶Î
+	// æŠ•å¤´æ®µ
 	public Header[] headers;
-	// Ã¿Ò»¸öÇëÇóµÄÎ¨Ò»±êÖ¾·û
+	// æ¯ä¸€ä¸ªè¯·æ±‚çš„å”¯ä¸€æ ‡å¿—ç¬¦
 	public String flagId;
-	// Êı¾İÊÇ·ñÀ´×Ô»º´æ
+	// æ•°æ®æ˜¯å¦æ¥è‡ªç¼“å­˜
 	public int isFromCache;
-	// ´íÎóÒì³£ĞÅÏ¢
+	// é”™è¯¯å¼‚å¸¸ä¿¡æ¯
 	public Throwable throwable;
 
 	@Override

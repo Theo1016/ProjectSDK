@@ -20,7 +20,7 @@ import android.util.Log;
 import android.widget.Toast;
 
 /**
- * ±ÀÀ£Òì³£²¶»ñ
+ * å´©æºƒå¼‚å¸¸æ•è·
  * @author Theo
  *
  */
@@ -32,7 +32,7 @@ public class CatchRuntimeCrash implements UncaughtExceptionHandler {
 
 	private static CatchRuntimeCrash instance;
 
-	// ´æ´¢Éè±¸ĞÅÏ¢ºÍÒì³£ĞÅÏ¢
+	// å­˜å‚¨è®¾å¤‡ä¿¡æ¯å’Œå¼‚å¸¸ä¿¡æ¯
 	private Map<String, String> infos = new HashMap<String, String>();
 
 	public static CatchRuntimeCrash getInstance(Context context) {
@@ -59,14 +59,14 @@ public class CatchRuntimeCrash implements UncaughtExceptionHandler {
 			} catch (InterruptedException e) {
 				LogUtils.e(mContext, Const.LogTag, e.getMessage(), false);
 			}
-			// ÍË³ö
+			// é€€å‡º
 			ActivityTaskManager.removeAllActivity4Task();
 			android.os.Process.killProcess(android.os.Process.myPid());
 			System.exit(10);
 		}
 	}
 	/**
-	 * ÊÕ¼¯Òì³£ĞÅÏ¢£¬¿É´¦ÀíÒì³£
+	 * æ”¶é›†å¼‚å¸¸ä¿¡æ¯ï¼Œå¯å¤„ç†å¼‚å¸¸
 	 * @param ex
 	 * @return
 	 */
@@ -78,26 +78,26 @@ public class CatchRuntimeCrash implements UncaughtExceptionHandler {
 			@Override
 			public void run() {
 				Looper.prepare();
-				Toast.makeText(mContext, "ºÜ±§Ç¸,³ÌĞò³öÏÖÒì³£.", Toast.LENGTH_LONG)
+				Toast.makeText(mContext, "å¾ˆæŠ±æ­‰,ç¨‹åºå‡ºç°å¼‚å¸¸.", Toast.LENGTH_LONG)
 						.show();
 
 				Looper.loop();
 			}
 		}.start();
-		// »ñÈ¡Òì³£ĞÅÏ¢
+		// è·å–å¼‚å¸¸ä¿¡æ¯
 		final String msg = IOUtils.parseExcption2String(ex);
-		// ÊÕ¼¯Éè±¸²ÎÊıĞÅÏ¢
+		// æ”¶é›†è®¾å¤‡å‚æ•°ä¿¡æ¯
 		collectDeviceInfo(mContext);
-		// ÍêÉÆÒì³£ĞÅÏ¢
+		// å®Œå–„å¼‚å¸¸ä¿¡æ¯
 		String info =completeErrorMsg(msg);
-		// ÈÕÖ¾Êä³ö
+		// æ—¥å¿—è¾“å‡º
 		LogUtils.runtimeError(mContext, Const.LogTag, info, true);
 		return false;
 	}
 	
 	
 	/**
-	 * ÍêÉÆÒì³£ĞÅÏ¢
+	 * å®Œå–„å¼‚å¸¸ä¿¡æ¯
 	 * @param msg
 	 */
 	private String completeErrorMsg(String msg){
@@ -113,13 +113,13 @@ public class CatchRuntimeCrash implements UncaughtExceptionHandler {
 	}
 
 	/**
-	 * ÊÕ¼¯Éè±¸²ÎÊıĞÅÏ¢
+	 * æ”¶é›†è®¾å¤‡å‚æ•°ä¿¡æ¯
 	 * 
 	 * @param ctx
 	 */
 	private void collectDeviceInfo(Context ctx) {
 		try {
-			// »ñÈ¡versionNameºÍCode
+			// è·å–versionNameå’ŒCode
 			getVersionNameAndCode(ctx);
 		} catch (NameNotFoundException e) {
 			Log.e(Const.LogTag, "an error occured when collect package info", e);
@@ -137,7 +137,7 @@ public class CatchRuntimeCrash implements UncaughtExceptionHandler {
 	}
 	
 	/**
-	 * »ñÈ¡VersionCodeºÍName
+	 * è·å–VersionCodeå’ŒName
 	 * @param ctx
 	 * @throws NameNotFoundException
 	 */

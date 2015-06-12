@@ -6,7 +6,7 @@ import java.util.Date;
 import java.util.Locale;
 
 /**
- * DATE¹¤¾ßÀà
+ * DATEå·¥å…·ç±»
  * @author Theo
  *
  */

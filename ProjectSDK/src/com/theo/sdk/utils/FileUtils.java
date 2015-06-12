@@ -14,26 +14,26 @@ import android.os.Environment;
 import android.util.Log;
 
 /**
- * File¹¤¾ßÀà
+ * Fileå·¥å…·ç±»
  * @author Theo
  *
  */
 public class FileUtils {
 
 	private String picpath = "calabar/User/";
-	// SDcardÎÄ¼şÂ·¾¶;
+	// SDcardæ–‡ä»¶è·¯å¾„;
 	private static String SDPATH;
 
 	/**
-	 ** ¹¹Ôì·½·¨ »ñÈ¡sd¿¨Â·¾¶
+	 ** æ„é€ æ–¹æ³• è·å–sdå¡è·¯å¾„
 	 * ***/
 	public FileUtils() {
-		// »ñµÃµ±Ç°Íâ²¿´æ´¢Éè±¸µÄÂ·¾¶
+		// è·å¾—å½“å‰å¤–éƒ¨å­˜å‚¨è®¾å¤‡çš„è·¯å¾„
 		SDPATH = Environment.getExternalStorageDirectory() + "/";
 	}
 
 	/**
-	 * ±£´æÍ¼Æ¬
+	 * ä¿å­˜å›¾ç‰‡
 	 * 
 	 * @param bitmap
 	 * @param fileName
@@ -46,13 +46,13 @@ public class FileUtils {
 		File file = null;
 		File tempf;
 		try {
-			// ´´½¨SD¿¨ÉÏµÄÄ¿Â¼
+			// åˆ›å»ºSDå¡ä¸Šçš„ç›®å½•
 			tempf = createSDDir(picpath);
 			synchronized (tempf) {
 				Log.i(Const.LogTag, "directory in the sd card:" + tempf.exists());
 				String nameString = picpath + fileName;
 				// removeFile(nameString);
-				// Ìí¼Ó±ê¼Ç
+				// æ·»åŠ æ ‡è®°
 				RenameFile(fileName); 
 				file = CreateSDFile(nameString);
 				Log.i(Const.LogTag,"file in the sd card:" + file.exists());
@@ -62,12 +62,12 @@ public class FileUtils {
 				if (name.equals(".jpg")) {
 					bitmap.compress(Bitmap.CompressFormat.JPEG, 100, bos);
 				} else if (name.equals(".png")) {
-					// PNG¸ñÊ½ÎŞ·¨½øĞĞÑ¹Ëõ
+					// PNGæ ¼å¼æ— æ³•è¿›è¡Œå‹ç¼©
 					bitmap.compress(Bitmap.CompressFormat.PNG, 100, bos); 
 				}
 				bos.flush();
 				bos.close();
-				// É¾³ıµô±ê¼Ç
+				// åˆ é™¤æ‰æ ‡è®°
 				DeletemarkFile();
 			}
 
@@ -82,7 +82,7 @@ public class FileUtils {
 	}
 
 	/**
-	 * É¾³ı±ê¼ÇÎÄ¼ş
+	 * åˆ é™¤æ ‡è®°æ–‡ä»¶
 	 */
 	public void DeletemarkFile() {
 		File f = new File(SDPATH + picpath);
@@ -105,7 +105,7 @@ public class FileUtils {
 	}
 
 	/**
-	 * ÔÚSD¿¨ÉÏÃæ´´½¨ÎÄ¼ş
+	 * åœ¨SDå¡ä¸Šé¢åˆ›å»ºæ–‡ä»¶
 	 * 
 	 * @throws IOException
 	 * */
@@ -116,7 +116,7 @@ public class FileUtils {
 	}
 
 	/**
-	 * ĞŞ¸ÄÒÔÇ°µÄÍ¼Æ¬Îª±ê¼ÇÎÄ¼ş
+	 * ä¿®æ”¹ä»¥å‰çš„å›¾ç‰‡ä¸ºæ ‡è®°æ–‡ä»¶
 	 */
 	public void RenameFile(String filename) {
 		File f = new File(SDPATH + picpath);
@@ -127,7 +127,7 @@ public class FileUtils {
 					return;
 				for (File file : files) {
 					String oldname = file.getName();
-					// Ö»Ëø¶¨Ïà¹ØÍ¼Æ¬£¬²»Ïà¹ØÔò²»ĞèÒªlock
+					// åªé”å®šç›¸å…³å›¾ç‰‡ï¼Œä¸ç›¸å…³åˆ™ä¸éœ€è¦lock
 					if (oldname.contains(filename)) {
 						String newname = oldname.substring(0, oldname.length());
 						newname = newname + ".lock";
@@ -148,7 +148,7 @@ public class FileUtils {
 
 	/**
 	 * 
-	 * ÔÚSD¿¨ÉÏ´´½¨Ä¿Â¼ 
+	 * åœ¨SDå¡ä¸Šåˆ›å»ºç›®å½• 
 	 * 
 	 */
 	public File createSDDir(String dirName) {

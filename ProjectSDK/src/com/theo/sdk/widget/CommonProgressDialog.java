@@ -12,7 +12,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 /**
- * Í¨ÓÃProgressDialog
+ * é€šç”¨ProgressDialog
  * @author Theo
  *
  */

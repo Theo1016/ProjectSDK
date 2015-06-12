@@ -3,7 +3,7 @@ package com.theo.sdk.callback;
 import com.theo.sdk.bean.ResponseBean;
 
 /**
- * ÇëÇó»Øµ÷
+ * è¯·æ±‚å›žè°ƒ
  * @author Theo
  *
  */
