@@ -42,7 +42,7 @@ public class HttpRequestHandler implements RequestInterface{
 	/**
 	 * 异步Http回调
 	 */
-	private AsyncHttpResponseHandler mAsyncHttpResponseHandler;
+	private TextHttpResponseHandler mTextHttpResponseHandler;
 	
 	/**
 	 * 网络数据请求Task
@@ -85,7 +85,7 @@ public class HttpRequestHandler implements RequestInterface{
 		init();
 		mOnHttpRequestHandlerListener = listener;
 		mHttpRequestTask = new HttpRequestTask(mContext, requestUrl,
-				requestParam, mPriority, mAsyncHttpResponseHandler);
+				requestParam, mPriority, mTextHttpResponseHandler);
 		mHttpRequestTask.setRequestType(mRequestType);
 		mHttpRequestTask.setURLFilter(new HttpRequestTask.URLFilter() {
 			@Override
@@ -103,20 +103,16 @@ public class HttpRequestHandler implements RequestInterface{
 	private void init() {
 		// 请求数据时，要求回调
 		if (mOnHttpRequestHandlerListener != null) {
-			mAsyncHttpResponseHandler = new AsyncHttpResponseHandler() {
-				
+			mTextHttpResponseHandler = new TextHttpResponseHandler() {
+
 				@Override
-				public void onSuccess(int statusCode, Header[] headers, byte[] responseBody) {
-					mOnHttpRequestHandlerListener.onSuccess(responseBody.toString());
+				public void onSuccess(int statusCode, Header[] headers,
+						String responseString) {
+					mOnHttpRequestHandlerListener.onSuccess(responseString);
 				}
-				
 				@Override
 				public void onFailure(int statusCode, Header[] headers,
-						byte[] responseBody, Throwable error) {
-					// 此请求已经被Cancel
-					if (mIsCanceled) {
-						return;
-					}
+						String responseString, Throwable throwable) {
 					mOnHttpRequestHandlerListener.onFailed(statusCode);
 				}
 			};
