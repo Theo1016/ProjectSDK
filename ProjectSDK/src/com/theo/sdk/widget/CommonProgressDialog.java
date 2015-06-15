@@ -1,6 +1,5 @@
 package com.theo.sdk.widget;
 
-import com.theo.projectsdk.R;
 
 import android.app.Dialog;
 import android.content.Context;
@@ -10,6 +9,8 @@ import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
 import android.widget.TextView;
+
+import com.theo.sdk.R;
 
 /**
  * 通用ProgressDialog

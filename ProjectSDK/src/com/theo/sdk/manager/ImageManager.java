@@ -1,24 +1,23 @@
 package com.theo.sdk.manager;
 
-import java.io.File;
-import java.util.Collection;
+import android.content.Context;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory.Options;
+
 import com.nostra13.universalimageloader.cache.disc.impl.UnlimitedDiscCache;
-import com.nostra13.universalimageloader.cache.memory.MemoryCacheAware;
 import com.nostra13.universalimageloader.cache.memory.impl.UsingFreqLimitedMemoryCache;
 import com.nostra13.universalimageloader.core.DisplayImageOptions;
 import com.nostra13.universalimageloader.core.ImageLoader;
 import com.nostra13.universalimageloader.core.ImageLoaderConfiguration;
 import com.nostra13.universalimageloader.core.assist.ImageScaleType;
 import com.nostra13.universalimageloader.core.assist.QueueProcessingType;
-import com.theo.projectsdk.R;
+import com.theo.sdk.R;
 import com.theo.sdk.app.SDKApplication;
 import com.theo.sdk.constant.Const;
-import com.theo.sdk.thread.CacheSizeThread;
 import com.theo.sdk.utils.LogUtils;
 
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory.Options;
-import android.content.Context;
+import java.io.File;
+import java.util.Collection;
 
 /**
  * 图片缓存管理

@@ -1,17 +1,20 @@
 package com.theo.sdk.request;
 
-import java.util.List;
-import org.apache.http.NameValuePair;
-import org.json.JSONException;
-import com.theo.sdk.constant.Const;
-import com.theo.sdk.request.CacheRequestTask.OnCacheRequestListener;
-import com.theo.sdk.request.HttpRequestHandler.OnHttpRequestHandlerListener;
 import android.content.Context;
 import android.os.Handler;
 import android.os.Looper;
 import android.text.TextUtils;
 import android.text.format.DateUtils;
 import android.util.Log;
+
+import com.theo.sdk.constant.Const;
+import com.theo.sdk.request.CacheRequestTask.OnCacheRequestListener;
+import com.theo.sdk.request.HttpRequestHandler.OnHttpRequestHandlerListener;
+
+import org.apache.http.NameValuePair;
+import org.json.JSONException;
+
+import java.util.List;
 
 /**
  * 
@@ -100,7 +103,7 @@ public abstract class AbstractRequestor {
 	/**
 	 * 设置解析方式
 	 * 
-	 * @param parseDataInterface
+	 * @param parseData
 	 */
 	public void setParseData(ParseDataInterface parseData) {
 		this.parseDateInterface = parseData;

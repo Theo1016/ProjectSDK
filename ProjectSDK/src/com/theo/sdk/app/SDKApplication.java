@@ -1,10 +1,11 @@
 package com.theo.sdk.app;
 
+import android.app.Application;
+import android.content.Context;
+
 import com.theo.sdk.manager.ImageManager;
 import com.theo.sdk.thread.CacheSizeThread;
 import com.theo.sdk.utils.AppUtils;
-import android.app.Application;
-import android.content.Context;
 
 /**
  * Application基类
@@ -33,6 +34,7 @@ public class SDKApplication extends Application{
 		try {
 			logSwitch = (String) AppUtils.getMetaData(getApplicationContext(), "log.switch");
 		} catch (Exception e) {
+			e.printStackTrace();
 		}
 	}
 }

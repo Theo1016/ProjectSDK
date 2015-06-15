@@ -1,23 +1,29 @@
 package com.theo.sdk.activity;
 
-import com.theo.sdk.bean.ResponseBean;
-import com.theo.sdk.callback.HttpCallBack;
-import com.theo.sdk.control.MemeryCallBack;
-import com.theo.sdk.manager.ActivityTaskManager;
-import com.theo.sdk.widget.CommonProgressDialog;
 import android.annotation.SuppressLint;
 import android.app.Activity;
+import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.IntentFilter;
 import android.os.Bundle;
+import android.support.v4.content.LocalBroadcastManager;
+import android.util.Log;
+
+import com.theo.sdk.bean.ResponseBean;
+import com.theo.sdk.callback.HttpCallBack;
+import com.theo.sdk.constant.Const;
+import com.theo.sdk.control.MemeryCallBack;
+import com.theo.sdk.manager.ActivityTaskManager;
+import com.theo.sdk.widget.CommonProgressDialog;
 
 /**
  * Activity基类
  * @author Theo
  * 
  */
-public class SDKBaseActivity extends Activity implements HttpCallBack {
+public abstract class SDKBaseActivity extends Activity implements HttpCallBack {
 
 	/**
 	 * 进度条
@@ -26,6 +32,8 @@ public class SDKBaseActivity extends Activity implements HttpCallBack {
 
 	protected Context mContext;
 
+    private BroadcastReceiver mMessageReceiver;
+
 	@SuppressLint("NewApi")
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -33,35 +41,53 @@ public class SDKBaseActivity extends Activity implements HttpCallBack {
 		mContext = getApplicationContext();
 		ActivityTaskManager.addActivity2Task(this);
 		mContext.registerComponentCallbacks(new MemeryCallBack());
+        initParams();
+        initViews();
+        initListeners();
+	}
+
+
+    /**
+     *
+     * 设置本地广播
+     */
+    private void setLocalReceiver(BroadcastReceiver receiver){
+        this.mMessageReceiver = receiver;
+        LocalBroadcastManager.getInstance(this).registerReceiver(mMessageReceiver, new IntentFilter(Const.LocalBroadCastTag));
+    }
+
+    /**
+     * 发送本地广播消息
+     * @param value
+     */
+	private void sendMessage(String value) {
+		Log.d(Const.LogTag, "Broadcasting message");
+		Intent intent = new Intent(Const.LocalBroadCastTag);
+		intent.putExtra("message", value);
+		LocalBroadcastManager.getInstance(this).sendBroadcast(intent);
 	}
 
 	@Override
 	protected void onDestroy() {
 		ActivityTaskManager.destoryActivity4Task(this);
+		LocalBroadcastManager.getInstance(this).unregisterReceiver(mMessageReceiver);
 		super.onDestroy();
 	}
 
 	/**
 	 * 初始化参数
 	 */
-	protected void initParams() {
-		mContext = getApplicationContext();
-
-	}
+	protected abstract void initParams();
 
 	/**
 	 * 初始化界面
 	 */
-	protected void initViews() {
-
-	}
+	protected abstract void initViews();
 
 	/**
 	 * 初始化监听器
 	 */
-	protected void initListeners() {
-
-	}
+	protected abstract void initListeners();
 
 	@Override
 	public void onSuccess(ResponseBean responseBeah) {

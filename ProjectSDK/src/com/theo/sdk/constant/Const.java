@@ -26,4 +26,6 @@ public class Const {
 	public static final String LogTag = "Calabar";
 	/** DEBUG开关 */
 	public static final boolean DEBUG = false;
+	/** Localbroadcast 标识*/
+	public static final String LocalBroadCastTag ="LocalBroadCast";
 }
