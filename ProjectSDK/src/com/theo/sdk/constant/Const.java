@@ -28,4 +28,14 @@ public class Const {
 	public static final boolean DEBUG = false;
 	/** Localbroadcast 标识*/
 	public static final String LocalBroadCastTag ="LocalBroadCast";
+
+	/** 显示适配基本参数*/
+	public static float SCREEN_DENSITY;
+    /** 屏幕像素*/
+	public static int SCREEN_WIDTH_PIXELS;
+	public static int SCREEN_HEIGHT_PIXELS;
+	/** 屏幕DP*/
+	public static int SCREEN_WIDTH_DP;
+	public static int SCREEN_HEIGHT_DP;
+
 }

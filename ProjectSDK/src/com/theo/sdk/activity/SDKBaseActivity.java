@@ -16,6 +16,7 @@ import com.theo.sdk.callback.HttpCallBack;
 import com.theo.sdk.constant.Const;
 import com.theo.sdk.control.MemeryCallBack;
 import com.theo.sdk.manager.ActivityTaskManager;
+import com.theo.sdk.utils.AppUtils;
 import com.theo.sdk.widget.CommonProgressDialog;
 
 /**
@@ -44,10 +45,23 @@ public abstract class SDKBaseActivity extends Activity implements HttpCallBack {
         initParams();
         initViews();
         initListeners();
+		initDisplayConst();
+	}
+
+	/**
+	 *
+	 * 初始化屏幕显示基本常量
+	 */
+	private void initDisplayConst() {
+		Const.SCREEN_WIDTH_PIXELS = AppUtils.getDisplayWidth(this);
+		Const.SCREEN_HEIGHT_PIXELS = AppUtils.getDisplayHeight(this);
+		Const.SCREEN_DENSITY = mContext.getResources().getDisplayMetrics().density;
+		Const.SCREEN_WIDTH_DP = AppUtils.px2dip(mContext,Const.SCREEN_WIDTH_PIXELS);
+		Const.SCREEN_HEIGHT_DP = AppUtils.px2dip(mContext,Const.SCREEN_HEIGHT_PIXELS);
 	}
 
 
-    /**
+	/**
      *
      * 设置本地广播
      */

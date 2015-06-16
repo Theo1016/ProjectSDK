@@ -8,19 +8,6 @@ public class JsonParseData extends JsonHttpResponseHandler implements ParseDataI
 
 	@Override
 	public boolean parseResult(String result) throws JSONException, Exception {
-//		if (null == result)
-//			return false;
-//		Object JsonObj = null;
-//		result = result.trim();
-//		if (result.startsWith(UTF8_BOM)) {
-//			result = result.substring(1);
-//		}
-//		if (result.startsWith("{") || result.startsWith("[")) {
-//			JsonObj = new JSONTokener(result).nextValue();
-//		}
-//		if (JsonObj == null) {
-//			JsonObj = result;
-//		}
 		return false;
 	}
 

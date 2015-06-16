@@ -4,6 +4,7 @@ import android.app.Application;
 import android.content.Context;
 
 import com.theo.sdk.manager.ImageManager;
+import com.theo.sdk.manager.NetworkStatusManager;
 import com.theo.sdk.thread.CacheSizeThread;
 import com.theo.sdk.utils.AppUtils;
 
@@ -25,6 +26,8 @@ public class SDKApplication extends Application{
 		// 实时监测内存
 		myCacheSizeThread = new CacheSizeThread();
 		myCacheSizeThread.start();
+		// 网络状态信息初始化
+		NetworkStatusManager.init(appContext);
 	}
 
 	/**
