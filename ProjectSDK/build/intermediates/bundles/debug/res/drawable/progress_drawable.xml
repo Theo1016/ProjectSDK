@@ -3,4 +3,4 @@
     android:drawable="@drawable/progress_loading"
     android:pivotX="50%"
     android:pivotY="50%"
-    /><!-- From: file:/Users/Admin/Documents/workspace/ProjectSDK/res/drawable/progress_drawable.xml -->
+    /><!-- From: file:/Users/Admin/ProjectSDK/ProjectSDK/res/drawable/progress_drawable.xml -->

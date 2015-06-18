@@ -10,7 +10,6 @@ import android.content.IntentFilter;
 import android.os.Bundle;
 import android.support.v4.content.LocalBroadcastManager;
 import android.util.Log;
-
 import com.theo.sdk.bean.ResponseBean;
 import com.theo.sdk.callback.HttpCallBack;
 import com.theo.sdk.constant.Const;

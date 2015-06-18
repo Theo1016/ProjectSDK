@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <declare-styleable name="CircleImageView"><attr format="dimension" name="border_width"/><attr format="color" name="border_color"/></declare-styleable>
-    <!-- From: file:/Users/Admin/Documents/workspace/ProjectSDK/res/values/strings.xml -->
+    <!-- From: file:/Users/Admin/ProjectSDK/ProjectSDK/res/values/strings.xml -->
     <eat-comment/>
     <string name="app_name">ProjectSDK</string>
     <string name="avalible_net">===>当前网络可用</string>
@@ -21,7 +21,7 @@
     <string name="service_dis_connected">===>服务已断开连接</string>
     <string name="threeg_net">===>当前网络------3G</string>
     <string name="wifi_net">===>当前网络------WIFI</string>
-    <!-- From: file:/Users/Admin/Documents/workspace/ProjectSDK/res/values/styles.xml -->
+    <!-- From: file:/Users/Admin/ProjectSDK/ProjectSDK/res/values/styles.xml -->
     <eat-comment/>
     <style name="AppBaseTheme" parent="android:Theme.Light">
         <!--

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <declare-styleable name="CircleImageView"><attr format="dimension" name="border_width"/><attr format="color" name="border_color"/></declare-styleable>
-    <!-- From: file:/Users/Admin/Documents/workspace/ProjectSDK/build/intermediates/bundles/debug/res/values/values.xml -->
+    <!-- From: file:/Users/Admin/ProjectSDK/ProjectSDK/build/intermediates/bundles/debug/res/values/values.xml -->
     <eat-comment/>
     <string name="app_name">ProjectSDK</string>
     <string name="avalible_net">===>当前网络可用</string>

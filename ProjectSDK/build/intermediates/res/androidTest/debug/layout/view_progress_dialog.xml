@@ -26,4 +26,4 @@
         android:text="@string/load_data"
         android:visibility="gone" />
 
-</LinearLayout><!-- From: file:/Users/Admin/Documents/workspace/ProjectSDK/res/layout/view_progress_dialog.xml --><!-- From: file:/Users/Admin/Documents/workspace/ProjectSDK/build/intermediates/bundles/debug/res/layout/view_progress_dialog.xml -->
+</LinearLayout><!-- From: file:/Users/Admin/ProjectSDK/ProjectSDK/res/layout/view_progress_dialog.xml --><!-- From: file:/Users/Admin/ProjectSDK/ProjectSDK/build/intermediates/bundles/debug/res/layout/view_progress_dialog.xml -->
