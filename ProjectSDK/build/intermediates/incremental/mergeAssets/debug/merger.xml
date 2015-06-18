@@ -1,2 +1,2 @@
 <?xml version="1.0" encoding="utf-8"?>
-<merger version="3"><dataSet config="main"><source path="/Users/Admin/ProjectSDK/ProjectSDK/assets"/></dataSet><dataSet config="debug"><source path="/Users/Admin/ProjectSDK/ProjectSDK/build-types/debug/assets"/></dataSet></merger>
+<merger version="3"><dataSet config="main"><source path="/Users/Admin/Documents/workspace/ProjectSDK/assets"/></dataSet><dataSet config="debug"><source path="/Users/Admin/Documents/workspace/ProjectSDK/build-types/debug/assets"/></dataSet></merger>
