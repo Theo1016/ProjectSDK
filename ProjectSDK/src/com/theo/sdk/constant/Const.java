@@ -28,7 +28,8 @@ public class Const {
 	public static final boolean DEBUG = false;
 	/** Localbroadcast 标识*/
 	public static final String LocalBroadCastTag ="LocalBroadCast";
-
+	/** 生命周期*/
+	public static final boolean DEBUG_LIFE_CYCLE = false;
 	/** 显示适配基本参数*/
 	public static float SCREEN_DENSITY;
     /** 屏幕像素*/

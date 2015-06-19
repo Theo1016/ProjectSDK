@@ -1,7 +1,6 @@
-package com.theo.sdk.activity;
+package com.theo.sdk.ui.activity;
 
 import android.annotation.SuppressLint;
-import android.app.Activity;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.DialogInterface;
@@ -10,6 +9,7 @@ import android.content.IntentFilter;
 import android.os.Bundle;
 import android.support.v4.content.LocalBroadcastManager;
 import android.util.Log;
+
 import com.theo.sdk.bean.ResponseBean;
 import com.theo.sdk.callback.HttpCallBack;
 import com.theo.sdk.constant.Const;
@@ -23,7 +23,7 @@ import com.theo.sdk.widget.CommonProgressDialog;
  * @author Theo
  * 
  */
-public abstract class SDKBaseActivity extends Activity implements HttpCallBack {
+public abstract class SDKBaseActivity extends SDKBaseFragmentActivity implements HttpCallBack {
 
 	/**
 	 * 进度条

@@ -9,7 +9,7 @@ package com.theo.sdk;
 
 public final class R {
     public static final class anim {
-        public static final int progressbar=0x7f040000;
+        public static int progressbar=0x7f040000;
     }
     public static final class attr {
         /** <p>Must be a color value, in the form of "<code>#<i>rgb</i></code>", "<code>#<i>argb</i></code>",
@@ -20,7 +20,7 @@ theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
          */
-        public static final int border_color=0x7f010001;
+        public static int border_color=0x7f010001;
         /** <p>Must be a dimension value, which is a floating point number appended with a unit such as "<code>14.5sp</code>".
 Available units are: px (pixels), dp (density-independent pixels), sp (scaled pixels based on preferred font size),
 in (inches), mm (millimeters).
@@ -30,40 +30,40 @@ theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
          */
-        public static final int border_width=0x7f010000;
+        public static int border_width=0x7f010000;
     }
     public static final class drawable {
-        public static final int ic_launcher=0x7f020000;
-        public static final int progress_drawable=0x7f020001;
-        public static final int progress_loading=0x7f020002;
+        public static int ic_launcher=0x7f020000;
+        public static int progress_drawable=0x7f020001;
+        public static int progress_loading=0x7f020002;
     }
     public static final class id {
-        public static final int dialog_view=0x7f070000;
-        public static final int iphone_progress_dialog_img=0x7f070001;
-        public static final int iphone_progress_dialog_txt=0x7f070002;
+        public static int dialog_view=0x7f070000;
+        public static int iphone_progress_dialog_img=0x7f070001;
+        public static int iphone_progress_dialog_txt=0x7f070002;
     }
     public static final class layout {
-        public static final int view_progress_dialog=0x7f030000;
+        public static int view_progress_dialog=0x7f030000;
     }
     public static final class string {
-        public static final int app_name=0x7f050000;
-        public static final int avalible_net=0x7f050001;
-        public static final int avalible_not_net=0x7f050002;
-        public static final int broad_sys_net_brodcast=0x7f050003;
-        public static final int change_no_net=0x7f050004;
-        public static final int change_threeg_net=0x7f050005;
-        public static final int change_wifi_net=0x7f050006;
-        public static final int empty=0x7f050007;
-        public static final int load_data=0x7f050008;
-        public static final int not_wifi_net=0x7f050009;
-        public static final int open_net_listener=0x7f05000a;
-        public static final int record_file_un_use=0x7f05000b;
-        public static final int regist_net_brodcast=0x7f05000c;
-        public static final int regist_sys_net_brodcast=0x7f05000d;
-        public static final int service_connected=0x7f05000e;
-        public static final int service_dis_connected=0x7f05000f;
-        public static final int threeg_net=0x7f050010;
-        public static final int wifi_net=0x7f050011;
+        public static int app_name=0x7f050000;
+        public static int avalible_net=0x7f050001;
+        public static int avalible_not_net=0x7f050002;
+        public static int broad_sys_net_brodcast=0x7f050003;
+        public static int change_no_net=0x7f050004;
+        public static int change_threeg_net=0x7f050005;
+        public static int change_wifi_net=0x7f050006;
+        public static int empty=0x7f050007;
+        public static int load_data=0x7f050008;
+        public static int not_wifi_net=0x7f050009;
+        public static int open_net_listener=0x7f05000a;
+        public static int record_file_un_use=0x7f05000b;
+        public static int regist_net_brodcast=0x7f05000c;
+        public static int regist_sys_net_brodcast=0x7f05000d;
+        public static int service_connected=0x7f05000e;
+        public static int service_dis_connected=0x7f05000f;
+        public static int threeg_net=0x7f050010;
+        public static int wifi_net=0x7f050011;
     }
     public static final class style {
         /** 
@@ -74,11 +74,11 @@ containing a value of this type.
  API 11 theme customizations can go here. 
  API 14 theme customizations can go here. 
          */
-        public static final int AppBaseTheme=0x7f060000;
+        public static int AppBaseTheme=0x7f060000;
         /**  All customizations that are NOT specific to a particular API-level can go here. 
          */
-        public static final int AppTheme=0x7f060001;
-        public static final int iphone_progress_dialog=0x7f060002;
+        public static int AppTheme=0x7f060001;
+        public static int iphone_progress_dialog=0x7f060002;
     }
     public static final class styleable {
         /** Attributes that can be used with a CircleImageView.
@@ -110,7 +110,7 @@ theme attribute (in the form
 containing a value of this type.
           @attr name com.theo.sdk:border_color
         */
-        public static final int CircleImageView_border_color = 1;
+        public static int CircleImageView_border_color = 1;
         /**
           <p>This symbol is the offset where the {@link com.theo.sdk.R.attr#border_width}
           attribute's value can be found in the {@link #CircleImageView} array.
@@ -126,6 +126,6 @@ theme attribute (in the form
 containing a value of this type.
           @attr name com.theo.sdk:border_width
         */
-        public static final int CircleImageView_border_width = 0;
+        public static int CircleImageView_border_width = 0;
     };
 }
